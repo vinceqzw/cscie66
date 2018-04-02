@@ -1,4 +1,4 @@
-<!-- 
+<!--
 David Kalish
 CSCI e66
 PS 3
@@ -8,7 +8,7 @@ PS 3
 
 <!ELEMENT book-data (author+, book+, wrote+)>
 <!ELEMENT author (name, dob?)?
-<!ATTLIST author 
+<!ATTLIST author
     authorid ID #REQUIRED>
 <!ELEMENT name (#PCDATA)>
 <!ELEMENT dob (#PCDATA)>
@@ -24,4 +24,4 @@ PS 3
 <!ELEMENT  wrote ()>
 <!ATTLIST wrote
     authorid IDREF #REQUIRED
-    isbn IDREF #REQUIRED> 
+    isbn IDREF #REQUIRED>
