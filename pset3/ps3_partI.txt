@@ -1,0 +1,27 @@
+<!-- 
+David Kalish
+CSCI e66
+PS 3
+
+6. A schema for an XML database
+ -->
+
+<!ELEMENT book-data (author+, book+, wrote+)>
+<!ELEMENT author (name, dob?)?
+<!ATTLIST author 
+    authorid ID #REQUIRED>
+<!ELEMENT name (#PCDATA)>
+<!ELEMENT dob (#PCDATA)>
+
+<!ELEMENT book (title, publisher, num_pages)
+<!ATTLIST book
+    isbn ID #REQUIRED
+    genre #PCDATA "fiction">
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT publisher (#PCDATA)>
+<!ELEMENT num_pages (#PCDATA)>
+
+<!ELEMENT  wrote ()>
+<!ATTLIST wrote
+    authorid IDREF #REQUIRED
+    isbn IDREF #REQUIRED> 

@@ -1,0 +1,362 @@
+David Kalish
+CSCI E66
+pset 2
+March 7 2018
+
+
+/* I had part 1 done on time, but for some reason I decided I should submit
+ * parts 1 and 2 together... Oh well I guess.
+ */
+
+1. Fixed-length and variable-length records
+1.1
+3783958 | 1297015 | BEST-ACTRESS#---------- | 2017
+
+1.2
+char 7  char 7  char 23 int
+7*1 +   7*1 +   23*1+   1*2
+7   +   7   +   23  +   2
+________
+39 bytes
+
+1.3
+7 | 3783958 | 7 | 1297015 | 12 | BEST-ACTRESS | 2 | 2017
+
+1.4
+int char7     int char7     int  char12         int int
+
+2   7         2   7         2    12             2   2
+________
+36 bytes
+
+1.5
+10 | 17 | 24 | 36 | 38 | 3783958 | 1297015 | BEST-ACTRESS | 2017
+
+1.6
+int  int  int  int  int  char7     char7     char12         int
+2    2    2    2    2    7         7         12             2
+________
+38 bytes
+
+1.7
+Fixed length record:
+Since they are fixed lengths, you know you can jump straight to the first byte
+of the type field.
+    1. jump to 14th byte
+    2. read byte-by-byte until '#' symbol for type field
+Variable Length Record, preceded by length
+    1. first length field is 7, jump 7 forward (now at 8)
+    2. next length field is 7, jump 7 forward (now at 17)
+    3. next length field is 12, read next 12 bytes for type field.
+Variable Length Record, offset header
+    1. bytes 4 and 5 is integer 24 (corresponding to the type's starting byte)
+    2. bytes 6 and 7 are integer 36 start of year field, i.e. end of type field
+    3. jump to byte 24, read until 35 for type field.
+
+1.8
+The good thing about Fixed Length is that you can immediately jump to the start
+of the field in question, because all records are the same number of bytes. A
+bad thing about it is that there is wasted storage space, in the extra unused
+bytes of variable length fields.
+
+The good thing about Variable Length with data preceded by data length integers
+is that you can save storage by allowing variable length fields to only be as
+long as the data requires. Another good thing is that if a variable length field
+changes length, only its preceding length integer needs to be updated and the
+it will correctly point to the next field.  The downside is in order to find the
+field you need, you have to traverse field-by-field, jumping by as many bytes as
+the Length int says, increasing the search time.
+
+The good thing about Variable Length with data preceded by data length integers
+is that you can save storage by allowing variable length fields to only be as
+long as the data requires.  Another good thing is that to find a specific field,
+you only have to find its starting offset in the header, as well as the offset
+of the next field (to know when the field ends). Then you can immediately jump
+to the field without traversing across all the other fields.  A downside is that
+if the length of a variable length field is changed, all offsets for fields that
+come after it need to be recalculated and updated for the lookup to keep working
+
+
+2: Index structures
+31, 30, 29, 21, 19, 18, 13, 11, 8, 6, 5, 3, 2
+
+2.1 B-tree
+
+a. insert 31
+    31
+
+b. insert 30
+    30 31
+
+c. insert 29
+    29 30 31
+
+d. insert 21
+    21 29 30 31
+
+e. insert 19
+    19 21 29 30 31
+    -----SPLIT----
+
+          29
+    ____/    \____
+    19 21    30 31
+
+f. insert 18
+             29
+    _______/    \____
+    18 19 21    30 31
+
+g. insert 13
+                29
+    __________/    \____
+    13 18 19 21    30 31
+
+h. insert 11
+                   29
+    _____________/    \____
+    11 13 18 19 21    30 31
+    -----SPLIT----
+
+            18 29
+          /   |   \
+    _____/  __|__  \_____
+    11 13   19 21   30 31
+
+i. insert 8
+              18 29
+            /   |   \
+    _______/  __|__  \_____
+    8 11 13   19 21   30 31
+
+j. insert 6
+                18 29
+              /   |   \
+    _________/  __|__  \_____
+    6 8 11 13   19 21   30 31
+
+k. insert 5
+                  18 29
+                /   |   \
+    ___________/  __|__  \_____
+    5 6 8 11 13   19 21   30 31
+    ---SPLIT---
+
+            8 18 29
+         /   /  \   \
+        /   /    \   \
+    ___/ __|__  __|__ \_____
+    5 6  11 13  19 21  30 31
+
+l. insert 3
+              8 18 29
+           /   /  \   \
+          /   /    \   \
+    _____/ __|__  __|__ \_____
+    3 5 6  11 13  19 21  30 31
+
+m. insert 2
+                8 18 29
+             /   /  \   \
+            /   /    \   \
+    _______/ __|__  __|__ \_____
+    2 3 5 6  11 13  19 21  30 31
+
+2.2 B+tree
+a. insert 31
+    31
+
+b. insert 30
+    30 31
+
+c. insert 29
+    29 30 31
+
+d. insert 21
+    21 29 30 31
+e. insert 19
+    19 21 29 30 31
+    -----SPLIT----
+          29
+    _____/  \________
+    19 21    29 30 31
+
+f. insert 18
+             29
+    ________/  \________
+    18 19 21    29 30 31
+
+g. insert 13
+                29
+    ___________/  \________
+    13 18 19 21    29 30 31
+
+h. insert 11
+                   29
+    ______________/  \________
+    11 13 18 19 21    29 30 31
+    -----SPLIT----
+             18 29
+          /    |   \
+    _____/ ____|___ \________
+    11 13  18 19 21  29 30 31
+
+i. insert 8
+               18 29
+            /    |   \
+    _______/ ____|___ \________
+    8 11 13  18 19 21  29 30 31
+
+j. insert 6
+                 18 29
+              /    |   \
+    _________/ ____|___ \________
+    6 8 11 13  18 19 21  29 30 31
+
+k. insert 5
+                   18 29
+                /    |   \
+    ___________/ ____|___ \________
+    5 6 8 11 13  18 19 21  29 30 31
+    ---SPLIT---
+              8 18 29
+             / / \   \
+           /  /   \    \
+         /   |     |     \
+    ___/ ____|__  _|______ \________
+    5 6  8 11 13  18 19 21  29 30 31'
+
+l. insert 3
+                8 18 29
+               / / \   \
+             /  /   \    \
+           /   |     |     \
+    _____/ ____|__  _|______ \________
+    3 5 6  8 11 13  18 19 21  29 30 31
+
+m. insert 2
+                  8 18 29
+                 / / \   \
+               /  /   \    \
+             /   |     |     \
+    _______/ ____|__  _|______ \________
+    2 3 5 6  8 11 13  18 19 21  29 30 31
+
+2.3 hash table/linear hashing
+    n = 2
+    i = ceil(log2(2)) = 1
+
+a. insert 31 = 11111 = 1
+    0:
+    1: 31
+
+b. insert 30 = 11110 => 0
+    0: 30
+    1: 31
+
+c. insert 29 = 11101 => 1
+    0: 30
+    1: 29 31
+
+d. insert 21 = 10101 => 1
+    0: 30
+    1: 21 29 31
+
+e. insert 19 = 10011 => 1
+    0: 30
+    1: 19 21 29 31
+
+    ADD BUCKET 10 (5 > 4)
+    n = 3
+    i = ceil(log2(3)) = 2
+    rehash 00
+
+    00:
+    01: 19 21 29 31
+    10: 30
+
+f. insert 18 = 10010 = 10
+    00:
+    01: 19 21 29 31
+    10: 18 30
+
+g. insert 13 = 1101 = 01
+    00:
+    01: 13 19 21 29 31
+    10: 18 30
+
+    ADD BUCKET 11 (7 > 6)
+    n = 4
+    i = ceil(log2(4)) = 2
+    rehash 01
+
+    00:
+    01: 13 21 29
+    10: 18 30
+    11: 19 31
+
+h. insert 11 = 1011 = 11
+    00:
+    01: 13 21 29
+    10: 18 30
+    11: 11 19 31
+
+i. insert 8 = 1000 = 00
+    00: 8
+    01: 13 21 29
+    10: 18 30
+    11: 11 19 31
+
+    ADD BUCKET 100 (9 > 8)
+    n = 5
+    i = ceil(log2(5)) = 3
+    rehash 00
+
+    000: 8
+    001: 13 21 29
+    010: 18 30
+    011: 11 19 31
+    100:
+
+j. insert 6 = 110 = 10
+    000: 8
+    001: 13 21 29
+    010: 6 18 30
+    011: 11 19 31
+    100:
+
+k. insert 5 = 101 = 01
+    000: 8
+    001: 5 13 21 29
+    010: 6 18 30
+    011: 11 19 31
+    100:
+
+    ADD BUCKET 101 (11 > 10)
+    n = 6
+    i = ceil(log2(6)) = 3
+    rehash 01
+
+    000: 8
+    001:
+    010: 6 18 30
+    011: 11 19 31
+    100:
+    101: 5 13 21 29
+
+l. insert 3 = 11 = 011
+    000: 8
+    001:
+    010: 6 18 30
+    011: 3 11 19 31
+    100:
+    101: 5 13 21 29
+
+m. insert 2 = 10 = 010
+    000: 8
+    001:
+    010: 2 6 18 30
+    011: 3 11 19 31
+    100:
+    101: 5 13 21 29
+

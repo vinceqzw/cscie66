@@ -1,0 +1,148 @@
+David Kalish
+davidpkalish@gmail.com
+CSCI E66
+pset 1 part 1
+2/14/18
+
+1. ER diagram basics
+1.1
+make the line between PROFESSOR and TEACHES thick.
+
+1.2
+make the line between PROFESSOR and TEACHES thick. Put an arrow on the line
+between TEACHES and COURSE pointing at COURSE.
+
+1.3
+make the line between PROFESSOR and TEACHES thick. Put an arrow on the line
+between TEACHES and COURSE pointing at COURSE. mMake the line between COURSE and
+TEACHES thick.
+
+1.4
+Teaches(professor, course, semester) is an acceptable relationship schema. The
+relationship is the function name, the professor ID and course name are both
+represented, and the semester is as well.
+
+
+2. Database design
+2.1
+BelongsTo is a many-to-one relationship from Artist to Label
+
+2.2
+An Artist belongs to at most one Label.
+A Label has at least one Artist.
+An Artist sings at least one Song.
+A Song is sung by any number of artists.
+An Album has at least one Song on it.
+A Song can be on any number of Albums.
+An Album is produced by at least one Label.
+A Label can produce any number of Albums.
+
+2.3
+Sings(_artist_id_, _song_id_)
+    foreign attributes: _artist_id_, _song_id_
+AppearsOn(_song_id_, _album_id_)
+    foreign attributes: _song_id_, _album_id_
+Produces(_name_, _id_)
+    foreign attributes: _name_, _id_
+Artist(_id_, name, dob, _label_name_)
+    foreign attributes: _label_name_
+Label(_name_, address)
+    foreign attributes: (none)
+
+
+3. Combining relations
+3.1 cartesian product
+R x S
+___________________
+R.a R.b R.c S.a S.b
+--- --- --- --- ---
+1   2   3   2   3
+1   2   3   3   4
+1   2   3   7   6
+3   4   3   2   3
+3   4   3   3   4
+3   4   3   7   6
+7   6   5   2   3
+7   6   5   3   4
+7   6   5   7   6
+___________________
+
+3.2 natural join
+R ⋈ S
+___________
+a   b   c
+--- --- ---
+3   4   3
+7   6   5
+___________
+
+3.3 left outer join
+R ⟕ S
+___________
+a   b   c
+--- --- ---
+1   2   3
+3   4   3
+7   6   5
+___________
+
+3.4 right outer join
+
+R ⟖ S
+___________
+a   b   c
+--- --- ---
+2   3   null
+3   4   3
+7   6   5
+___________
+
+3.5 full outer join
+R⟗S
+___________
+a   b   c
+--- --- ---
+1   2   3
+2   3   null
+3   4   3
+7   6   5
+___________
+
+
+4. Relational algebra queries
+4.1 #7
+
+JOIN{Person, Actor, Movie, Oscar}}
+SELECTION{Person.name = 'Meryl Streep'}
+SELECTION{Movie.id = Actor.movie_id}
+SELECTION{Person.id = Actor.actor_id}
+SELECTION{Oscar.movie_id = Movie.id}
+SELECTION{Oscar.person_id = Person.id}
+PROJECT{Oscar.year, Oscar.type, Movie.name}
+
+4.2 #12
+JOIN{Person, Movie, Actor}
+SELECTION{Actor.actor_id = Person.id}
+SELECTION{Actor.movie_id = Movie.id}
+SELECTION{Movie.year < 2010}
+SELECTION{Person.id NOT IN (
+        JOIN{ Actor, Person, Movie}
+        SELECTION{Actor.actor_id = Person.id}
+        SELECTION{Actor.movie_id = Movie.id}
+        SELECTION{Movie.year >= 2010}
+        PROJECTION{DISTINCT Person.id}
+    )}
+PROJECT{Person.id}
+
+4.3 #13
+JOIN{Person, Oscar, Movie, actDir = (
+    UNION{
+        PROJECTION{Actor.actor_id, Actor.movie_id},
+        PROJECTION{Director.director_id, Director.movie_id}
+    })
+    SELECTION{Person.pob LIKE '%mexico'}
+    SELECTION{Person.id = actDir.actor_id}
+    SELECTION{Movie.id = actDir.movie_id}
+    SELECTION{Oscar.person_id = Person.id}
+    PROJECTION{Person.name, Oscar.type, Movie.year}
+}
