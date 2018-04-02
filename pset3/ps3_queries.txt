@@ -40,6 +40,7 @@ echo ""
 echo "results of query 1"
 echo "------------------"
 query 'collection("imdb.dbxml")//movie[rating = "R"][year >= 1990][year <= 1999]/name'
+
 print
 echo ""
 
@@ -49,7 +50,10 @@ echo ""
 
 echo "results of query 2"
 echo "------------------"
-query 'collection("imdb.dbxml")//movie[rating = "R"][year >= 1990][year <= 1999]/name'
+query 'for $p in collection("imdb.dbxml")//person
+where contains($p/pob, "Boston, Mass") and $p/@actedIn
+return $p'
+
 print
 echo ""
 
@@ -59,8 +63,14 @@ echo ""
 
 echo "results of query 3"
 echo "------------------"
+query 'for $o in collection("imdb.dbxml")//oscar,
+    $m in collection("imdb.dbxml")//movie
+where $o/type = "BEST-PICTURE" and $o/@movie_id = $m/@id
+return <winner>
+    {$m/name/text(), " (", $o/year/text(), ")"}
+    </winner>'
 
-
+print
 echo ""
 
 #
@@ -69,8 +79,19 @@ echo ""
 
 echo "results of query 4"
 echo "------------------"
+query 'for $m in collection("imdb.dbxml")//movie[earnings_rank <= 10]
+return (<top-grosser> {
+    "\n  ", $m/name,
+    "\n  ", $m/earnings_rank,
+    "\n", for $p in collection("imdb.dbxml")//person
+        where contains($m/@actors, $p/@id)
+        return (" ", <big-star>
+            {$p/name/text()}
+        </big-star>, "\n")
+    }  </top-grosser>)'
 
 
+print
 echo ""
 
 #
