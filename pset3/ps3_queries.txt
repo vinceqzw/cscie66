@@ -83,7 +83,8 @@ query 'for $m in collection("imdb.dbxml")//movie[earnings_rank <= 10]
 return (<top-grosser> {
     "\n  ", $m/name,
     "\n  ", $m/earnings_rank,
-    "\n", for $p in collection("imdb.dbxml")//person
+    "\n",
+    for $p in collection("imdb.dbxml")//person
         where contains($m/@actors, $p/@id)
         return (" ", <big-star>
             {$p/name/text()}
@@ -101,8 +102,17 @@ echo ""
 
 echo "results of query 5"
 echo "------------------"
+query 'for $r in distinct-values(collection("imdb.dbxml")//movie/rating)
+let $m := collection("imdb.dbxml")//movie[rating = $r]
+return (<rating-info> {"\n  ",
+    <rating> {$r} </rating>, "\n  ",
+    <num-movies> {count($m)} </num-movies>, "\n  ",
+    <avg-runtime> {avg($m/runtime)} </avg-runtime>, "\n",
+    for $tg in $m[earnings_rank <= 20]
+        return (" ", <top-grosser>{$tg/name/text()}</top-grosser>, "\n")
+} </rating-info>)'
 
-
+print
 echo ""
 
 #
@@ -112,8 +122,18 @@ echo ""
 
 echo "results of query 6"
 echo "------------------"
+query 'for $p in collection("imdb.dbxml")//person[@actedIn][@directed]
+let $m := collection("imdb.dbxml")//movie
+return <actor-director>{"\n  ",
+    $p/name, "\n  ",
+    <num-acted> {count(tokenize($p/@actedIn, " "))}</num-acted>, "\n  ",
+    <num-directed> {count(tokenize($p/@directed, " "))}</num-directed>, "\n",
+    for $a in tokenize($p/@actedIn, " ")
+        where contains($p/@directed, $a) and $m/@id = $a
+        return (" ", <acted-and-directed>{ $m[@id=$a]/name/text() }</acted-and-directed>, "\n")
+} </actor-director>'
 
-
+print
 echo ""
 
 # Do not modify the following line.
