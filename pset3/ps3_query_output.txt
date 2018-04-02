@@ -1,0 +1,383 @@
+results of sample query
+-----------------------
+<name>Home Alone</name>
+<name>Ghost</name>
+<name>Dances with Wolves</name>
+<name>Pretty Woman</name>
+<name>Teenage Mutant Ninja Turtles</name>
+<name>Reversal of Fortune</name>
+<name>Misery</name>
+<name>Goodfellas</name>
+
+results of query 1
+------------------
+<name>Saving Private Ryan</name>
+<name>Terminator 2: Judgment Day</name>
+<name>Pretty Woman</name>
+<name>There's Something About Mary</name>
+<name>Air Force One</name>
+<name>Matrix, The</name>
+<name>Firm, The</name>
+<name>Jerry Maguire</name>
+<name>True Lies</name>
+<name>Lethal Weapon 3</name>
+<name>Few Good Men, A</name>
+<name>Blair Witch Project, The</name>
+<name>Good Will Hunting</name>
+<name>Green Mile, The</name>
+<name>Ransom</name>
+<name>Rock, The</name>
+<name>Silence of the Lambs, The</name>
+<name>American Beauty</name>
+<name>Lethal Weapon 4</name>
+<name>Girl, Interrupted</name>
+<name>Shakespeare in Love</name>
+<name>Affliction</name>
+<name>L.A. Confidential</name>
+<name>English Patient, The</name>
+<name>Fargo</name>
+<name>Braveheart</name>
+<name>Leaving Las Vegas</name>
+<name>Dead Man Walking</name>
+<name>Usual Suspects, The</name>
+<name>Mighty Aphrodite</name>
+<name>Ed Wood</name>
+<name>Bullets Over Broadway</name>
+<name>Schindler's List</name>
+<name>Piano, The</name>
+<name>Unforgiven</name>
+<name>Scent of a Woman</name>
+<name>My Cousin Vinny</name>
+<name>Fisher King, The</name>
+<name>Reversal of Fortune</name>
+<name>Misery</name>
+<name>Goodfellas</name>
+
+results of query 2
+------------------
+<name>Leonard Nimoy</name>
+<name>Jane Alexander</name>
+<name>John Cazale</name>
+<name>Madeline Kahn</name>
+<name>James Remar</name>
+<name>Alessandro Nivola</name>
+<name>Maura Tierney</name>
+<name>Ian Keith</name>
+<name>Eli Roth</name>
+<name>James Spader</name>
+<name>Colm Feore</name>
+<name>John Slattery</name>
+
+results of query 3
+------------------
+<winner>Moonlight (2017)</winner>
+<winner>Spotlight (2016)</winner>
+<winner>Birdman: Or (2015)</winner>
+<winner>12 Years a Slave (2014)</winner>
+<winner>Argo (2013)</winner>
+<winner>The King's Speech (2011)</winner>
+<winner>The Hurt Locker (2010)</winner>
+<winner>Slumdog Millionaire (2009)</winner>
+<winner>No Country for Old Men (2008)</winner>
+<winner>The Departed (2007)</winner>
+<winner>Gladiator (2001)</winner>
+<winner>American Beauty (2000)</winner>
+<winner>Shakespeare in Love (1999)</winner>
+<winner>English Patient, The (1997)</winner>
+<winner>Braveheart (1996)</winner>
+<winner>Schindler's List (1994)</winner>
+<winner>Unforgiven (1993)</winner>
+<winner>Silence of the Lambs, The (1992)</winner>
+<winner>Rain Man (1989)</winner>
+<winner>Platoon (1987)</winner>
+<winner>Ordinary People (1981)</winner>
+<winner>Deer Hunter, The (1979)</winner>
+<winner>One Flew Over the Cuckoo's Nest (1976)</winner>
+<winner>Godfather: Part II, The (1975)</winner>
+<winner>Godfather, The (1973)</winner>
+<winner>French Connection, The (1972)</winner>
+<winner>Midnight Cowboy (1970)</winner>
+
+results of query 4
+------------------
+<top-grosser>
+  <name>Star Wars: The Force Awakens</name>
+  <earnings_rank>1</earnings_rank>
+  <big-star>Harrison Ford</big-star>
+  <big-star>Carrie Fisher</big-star>
+  <big-star>Mark Hamill</big-star>
+  <big-star>Adam Driver</big-star>
+  <big-star>Daisy Ridley</big-star>
+</top-grosser>
+<top-grosser>
+  <name>Avatar</name>
+  <earnings_rank>2</earnings_rank>
+  <big-star>Sigourney Weaver</big-star>
+  <big-star>Michelle Rodriguez</big-star>
+  <big-star>Sam Worthington</big-star>
+  <big-star>Zoe Saldana</big-star>
+  <big-star>Stephen Lang</big-star>
+</top-grosser>
+<top-grosser>
+  <name>Titanic</name>
+  <earnings_rank>3</earnings_rank>
+  <big-star>Leonardo DiCaprio</big-star>
+  <big-star>Bill Paxton</big-star>
+  <big-star>Kate Winslet</big-star>
+  <big-star>Billy Zane</big-star>
+  <big-star>Kathy Bates</big-star>
+</top-grosser>
+<top-grosser>
+  <name>Jurassic World</name>
+  <earnings_rank>4</earnings_rank>
+  <big-star>Vincent D'Onofrio</big-star>
+  <big-star>Bryce Dallas Howard</big-star>
+  <big-star>Irrfan Khan</big-star>
+  <big-star>Chris Pratt</big-star>
+  <big-star>Ty Simpkins</big-star>
+</top-grosser>
+<top-grosser>
+  <name>The Avengers</name>
+  <earnings_rank>5</earnings_rank>
+  <big-star>Chris Evans</big-star>
+  <big-star>Robert Downey Jr.</big-star>
+  <big-star>Scarlett Johansson</big-star>
+  <big-star>Chris Hemsworth</big-star>
+  <big-star>Mark Ruffalo</big-star>
+</top-grosser>
+<top-grosser>
+  <name>The Dark Knight</name>
+  <earnings_rank>6</earnings_rank>
+  <big-star>Christian Bale</big-star>
+  <big-star>Heath Ledger</big-star>
+  <big-star>Aaron Eckhart</big-star>
+  <big-star>Michael Caine</big-star>
+  <big-star>Maggie Gyllenhaal</big-star>
+</top-grosser>
+<top-grosser>
+  <name>Rogue One</name>
+  <earnings_rank>7</earnings_rank>
+  <big-star>Alan Tudyk</big-star>
+  <big-star>Diego Luna</big-star>
+  <big-star>Felicity Jones</big-star>
+  <big-star>Donnie Yen</big-star>
+  <big-star>Wen Jiang</big-star>
+</top-grosser>
+<top-grosser>
+  <name>Beauty and the Beast</name>
+  <earnings_rank>8</earnings_rank>
+  <big-star>Kevin Kline</big-star>
+  <big-star>Emma Watson</big-star>
+  <big-star>Josh Gad</big-star>
+  <big-star>Dan Stevens</big-star>
+  <big-star>Luke Evans</big-star>
+</top-grosser>
+<top-grosser>
+  <name>Finding Dory</name>
+  <earnings_rank>9</earnings_rank>
+  <big-star>Albert Brooks</big-star>
+  <big-star>Ellen DeGeneres</big-star>
+  <big-star>Ed O'Neill</big-star>
+  <big-star>Kaitlin Olson</big-star>
+  <big-star>Hayden Rolence</big-star>
+</top-grosser>
+<top-grosser>
+  <name>Star Wars: Episode I - The Phantom Menace</name>
+  <earnings_rank>10</earnings_rank>
+  <big-star>Ewan McGregor</big-star>
+  <big-star>Natalie Portman</big-star>
+  <big-star>Pernilla August</big-star>
+  <big-star>Liam Neeson</big-star>
+  <big-star>Jake Lloyd</big-star>
+</top-grosser>
+
+results of query 5
+------------------
+<rating-info>
+  <rating>PG-13</rating>
+  <num-movies>212</num-movies>
+  <avg-runtime>127.523584905660377358490566</avg-runtime>
+  <top-grosser>Star Wars: The Force Awakens</top-grosser>
+  <top-grosser>Avatar</top-grosser>
+  <top-grosser>Titanic</top-grosser>
+  <top-grosser>Jurassic World</top-grosser>
+  <top-grosser>The Avengers</top-grosser>
+  <top-grosser>The Dark Knight</top-grosser>
+  <top-grosser>Rogue One</top-grosser>
+  <top-grosser>Avengers: Age of Ultron</top-grosser>
+  <top-grosser>The Dark Knight Rises</top-grosser>
+  <top-grosser>The Hunger Games: Catching Fire</top-grosser>
+  <top-grosser>Pirates of the Caribbean: Dead Man's Chest</top-grosser>
+  <top-grosser>Wonder Woman</top-grosser>
+</rating-info>
+<rating-info>
+  <rating>PG</rating>
+  <num-movies>138</num-movies>
+  <avg-runtime>112.3478260869565217391304348</avg-runtime>
+  <top-grosser>Beauty and the Beast</top-grosser>
+  <top-grosser>Finding Dory</top-grosser>
+  <top-grosser>Star Wars: Episode I - The Phantom Menace</top-grosser>
+  <top-grosser>Star Wars</top-grosser>
+  <top-grosser>Shrek 2</top-grosser>
+  <top-grosser>E.T. the Extra-Terrestrial</top-grosser>
+</rating-info>
+<rating-info>
+  <rating>G</rating>
+  <num-movies>38</num-movies>
+  <avg-runtime>116.8421052631578947368421053</avg-runtime>
+  <top-grosser>Lion King, The</top-grosser>
+  <top-grosser>Toy Story 3</top-grosser>
+</rating-info>
+<rating-info>
+  <rating>R</rating>
+  <num-movies>152</num-movies>
+  <avg-runtime>126.2039473684210526315789474</avg-runtime>
+</rating-info>
+<rating-info>
+  <rating>NC-17</rating>
+  <num-movies>2</num-movies>
+  <avg-runtime>114.5</avg-runtime>
+</rating-info>
+<rating-info>
+  <rating>M</rating>
+  <num-movies>5</num-movies>
+  <avg-runtime>124</avg-runtime>
+</rating-info>
+<rating-info>
+  <rating>GP</rating>
+  <num-movies>1</num-movies>
+  <avg-runtime>187</avg-runtime>
+</rating-info>
+
+results of query 6
+------------------
+<actor-director>
+  <name>Laurence Olivier</name>
+  <num-acted>3</num-acted>
+  <num-directed>1</num-directed>
+  <acted-and-directed>Hamlet</acted-and-directed>
+</actor-director>
+<actor-director>
+  <name>Woody Allen</name>
+  <num-acted>1</num-acted>
+  <num-directed>6</num-directed>
+  <acted-and-directed>Annie Hall</acted-and-directed>
+</actor-director>
+<actor-director>
+  <name>Kevin Costner</name>
+  <num-acted>3</num-acted>
+  <num-directed>1</num-directed>
+  <acted-and-directed>Dances with Wolves</acted-and-directed>
+</actor-director>
+<actor-director>
+  <name>Clint Eastwood</name>
+  <num-acted>3</num-acted>
+  <num-directed>5</num-directed>
+  <acted-and-directed>Unforgiven</acted-and-directed>
+  <acted-and-directed>Million Dollar Baby</acted-and-directed>
+  <acted-and-directed>Gran Torino</acted-and-directed>
+</actor-director>
+<actor-director>
+  <name>Mel Gibson</name>
+  <num-acted>9</num-acted>
+  <num-directed>2</num-directed>
+  <acted-and-directed>Braveheart</acted-and-directed>
+</actor-director>
+<actor-director>
+  <name>Tim Robbins</name>
+  <num-acted>2</num-acted>
+  <num-directed>1</num-directed>
+</actor-director>
+<actor-director>
+  <name>Denzel Washington</name>
+  <num-acted>4</num-acted>
+  <num-directed>1</num-directed>
+  <acted-and-directed>Fences</acted-and-directed>
+</actor-director>
+<actor-director>
+  <name>Ben Affleck</name>
+  <num-acted>5</num-acted>
+  <num-directed>1</num-directed>
+  <acted-and-directed>Argo</acted-and-directed>
+</actor-director>
+<actor-director>
+  <name>Richard Attenborough</name>
+  <num-acted>2</num-acted>
+  <num-directed>1</num-directed>
+</actor-director>
+<actor-director>
+  <name>Ed Harris</name>
+  <num-acted>6</num-acted>
+  <num-directed>1</num-directed>
+  <acted-and-directed>Pollock</acted-and-directed>
+</actor-director>
+<actor-director>
+  <name>Leonard Nimoy</name>
+  <num-acted>1</num-acted>
+  <num-directed>1</num-directed>
+</actor-director>
+<actor-director>
+  <name>Robert Redford</name>
+  <num-acted>4</num-acted>
+  <num-directed>1</num-directed>
+</actor-director>
+<actor-director>
+  <name>Warren Beatty</name>
+  <num-acted>3</num-acted>
+  <num-directed>1</num-directed>
+  <acted-and-directed>Reds</acted-and-directed>
+</actor-director>
+<actor-director>
+  <name>Roberto Benigni</name>
+  <num-acted>1</num-acted>
+  <num-directed>1</num-directed>
+  <acted-and-directed>Vita e bella, La</acted-and-directed>
+</actor-director>
+<actor-director>
+  <name>Sydney Pollack</name>
+  <num-acted>1</num-acted>
+  <num-directed>4</num-directed>
+</actor-director>
+<actor-director>
+  <name>Garry Marshall</name>
+  <num-acted>1</num-acted>
+  <num-directed>2</num-directed>
+</actor-director>
+<actor-director>
+  <name>David Butler</name>
+  <num-acted>1</num-acted>
+  <num-directed>1</num-directed>
+</actor-director>
+<actor-director>
+  <name>Jon Favreau</name>
+  <num-acted>1</num-acted>
+  <num-directed>4</num-directed>
+</actor-director>
+<actor-director>
+  <name>Gene Saks</name>
+  <num-acted>1</num-acted>
+  <num-directed>1</num-directed>
+</actor-director>
+<actor-director>
+  <name>Bob Peterson</name>
+  <num-acted>1</num-acted>
+  <num-directed>1</num-directed>
+  <acted-and-directed>Up</acted-and-directed>
+</actor-director>
+<actor-director>
+  <name>Seth MacFarlane</name>
+  <num-acted>2</num-acted>
+  <num-directed>1</num-directed>
+  <acted-and-directed>Ted</acted-and-directed>
+</actor-director>
+<actor-director>
+  <name>Chris Sanders</name>
+  <num-acted>1</num-acted>
+  <num-directed>1</num-directed>
+</actor-director>
+<actor-director>
+  <name>Elizabeth Banks</name>
+  <num-acted>1</num-acted>
+  <num-directed>1</num-directed>
+</actor-director>
+
