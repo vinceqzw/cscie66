@@ -223,8 +223,11 @@ if __name__ == "__main__":
 
     # Open the xml outfiles.
     m_outfile = open("movies.xml", 'w')
+    print("movies.xml has been written")
     p_outfile = open("people.xml", 'w')
+    print("people.xml has been written")
     o_outfile = open("oscars.xml", 'w')
+    print("oscars.xml has been written")
 
     moviesXMLWriter(m_outfile)
     peopleXMLWriter(p_outfile)
