@@ -52,7 +52,7 @@ echo "results of query 2"
 echo "------------------"
 query 'for $p in collection("imdb.dbxml")//person
 where contains($p/pob, "Boston, Mass") and $p/@actedIn
-return $p'
+return $p/name'
 
 print
 echo ""
@@ -64,7 +64,7 @@ echo ""
 echo "results of query 3"
 echo "------------------"
 query 'for $o in collection("imdb.dbxml")//oscar,
-    $m in collection("imdb.dbxml")//movie
+    $m in collection("imdb.dbxml")//movie[rating = "R"]
 where $o/type = "BEST-PICTURE" and $o/@movie_id = $m/@id
 return <winner>
     {$m/name/text(), " (", $o/year/text(), ")"}
