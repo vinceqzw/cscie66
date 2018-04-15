@@ -55,4 +55,43 @@ Voting:
     copies) to get the 5 exclusive locks needed for global XL.
 
 3: Object-oriented data models
-    
+    1. ODL
+    class Author {
+        attribute string id;
+        attribute string first_name;
+        attribute string middle_name;
+        attribute string last_name;
+        attribute Date dob;
+        Struct name  {string first_name, string middle_name, string last_name}
+        relationship set<Book> booksWritten
+            inverse Book::writtenBy;
+    }
+
+    class Book {
+        attribute string isbn;
+        attribute string title;
+        attribute string publisher;
+        attribute int num_pages;
+        attribute string genre;
+        relationship set<Author> writtenBy
+            inverse Author::booksWritten;
+    }
+
+    2. object-relational
+
+    Author(id, first_name, middle_name, last_name, dob, name(first_name, middle_name, last_name), booksWritten({*Book}))
+    Book(isbn, title, publisher, num_pages, genre, writtenBy({*Author}))
+
+    3. SQL query find books by Sullivan (last name)
+
+    SELECT Book.title
+    FROM Book
+    WHERE Book.writtenBy->last_name LIKE "Sullivan"
+
+    4. SQL query find books by JK Rowling, published by Hogwarts Press
+
+    SELECT Book.title
+    FROM Book
+    WHERE Book.writtenBy->last_name LIKE "Rowling"
+        AND Book.writtenBy->first_name LIKE "J.K."
+        AND Book.publisher LIKE "Hogwarts Press"
