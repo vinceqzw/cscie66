@@ -3,3 +3,56 @@ cscie66
 pset4
 4/18/18
 
+1: Replication
+
+Voting:
+
+    1. update 6 copies, read 3 copies
+       n=7
+       w=6
+       r = 3 (> 1)  
+       x > 7/2 > 3; x = 6
+       s > 7 - 6; s > 1
+
+       this scheme would work not because to write, it needs exclusive lock on 6
+       copies, and in order to read, it needs a shared lock on at least 2. There
+       are 7 copies, 6+2>7, so it doesn't work.
+
+    2. update 2 copies, read 6 copies
+       n = 7
+       w = 2
+       r = 6 (> 5)
+       x = 2 (!> 3)
+
+       This scheme will not work because fully distributed locking requires
+       exclusive lock on more than 3, but this scheme only tries to write to 2
+
+    3. update 5 copies, read 2 copies
+       n = 7
+       w = 5
+       r = 2 (!> 2)
+
+       This scheme will not work because it reads 2, but needs to read at least
+       3 for voting.
+
+    4. update 4 copies, read 4 copies
+       n = 7
+       w = 4
+       r = 4 (> 3)
+       x = 4 (> 7/2 > 3)
+       s = 4 (> 7 - 4 > 3)
+
+       This scheme works because all of the read/write requirements for voting
+       and shared/exclusive lock requirements for fully distributed locking are
+       met.
+
+2: Grad-credit problem: distributed locking with update locks
+    When writing X number of copies, put X number of exclusive locks.  If the
+    number of read copies is more than N - X, put update locks on the overlap
+    (i.e. 7 copies, 5 write, 3 read. 7 - 5 = 2.  Put shared locks on 1, and
+    update lock on 1). That way, the scheme can read 3, and then upgrade 1 from
+    update to exclusive (plus exclusive locks on the remaining 4 unlocked
+    copies) to get the 5 exclusive locks needed for global XL.
+
+3: Object-oriented data models
+    
