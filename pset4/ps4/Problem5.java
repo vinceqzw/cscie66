@@ -96,19 +96,19 @@ public class Problem5 {
             System.out.println("line: " + line.getClass().getName() + " " + line);
 
             // write to context: constant, (domain, num users)
-            // context.write(new Text("domain sum"), new Text(line));
+            context.write(new Text("domain sum"), new Text(line));
         }
     }
 
 
     public static class MyReducer2 extends
-        Reducer<Text, Text, Text, LongWritable>
+        Reducer<Text, IntWritable, Text, LongWritable>
     {
-        public void reduce(Text key, Iterable<Text> values, Context context)
+        public void reduce(Text key, Iterable<IntWritable> values, Context context)
             throws IOException, InterruptedException
         {
-            // System.out.println("key: " + key);
-            // System.out.println("values: " + values);
+            System.out.println("key: " + key.getClass().getName() + " " + key);
+            System.out.println("values: " + values.getClass().getName() + " " + values);
         }
     }
 
@@ -141,8 +141,8 @@ public class Problem5 {
         /*
   * Second job in a chain of two jobs
   */
-//        Configuration conf = new Configuration();
-        Job job2 = Job.getInstance(conf, "problem 5");
+        Configuration conf2 = new Configuration();
+        Job job2 = Job.getInstance(conf2, "problem 5");
         job2.setJarByClass(Problem5.class);
 
         /* CHANGE THE CLASS NAMES AS NEEDED IN THE METHOD CALLS BELOW */
@@ -152,9 +152,9 @@ public class Problem5 {
         job2.setReducerClass(MyReducer2.class);
 
         job2.setOutputKeyClass(Text.class);
-        job2.setOutputValueClass(LongWritable.class);
+        job2.setOutputValueClass(Text.class);
         //   job2.setMapOutputKeyClass(Text.class);
-        job2.setMapOutputValueClass(IntWritable.class);
+        job2.setMapOutputValueClass(Text.class);
 
         job2.setInputFormatClass(TextInputFormat.class);
         FileInputFormat.addInputPath(job2, new Path(args[1]));
