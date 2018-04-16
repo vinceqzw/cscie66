@@ -9,8 +9,8 @@ import java.util.*;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 
-/* 
- * interfaces and classes for Hadoop data types that you may 
+/*
+ * interfaces and classes for Hadoop data types that you may
  * need for some or all of the problems from PS 4
  */
 import org.apache.hadoop.io.ArrayWritable;
@@ -33,14 +33,14 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 public class Problem5 {
 
     /*
-     * This mapper maps each input line to a set of (word, 1) pairs, 
+     * This mapper maps each input line to a set of (word, 1) pairs,
      * with one pair for each word in the line.
      */
     public static class MyMapper1 extends
-        Mapper<Object, Text, Text, IntWritable> 
+        Mapper<Object, Text, Text, IntWritable>
     {
-        public void map(Object key, Text value, Context context) 
-            throws IOException, InterruptedException 
+        public void map(Object key, Text value, Context context)
+            throws IOException, InterruptedException
         {
             // Convert the Text object for the value to a String.
             String line = value.toString();
@@ -63,10 +63,10 @@ public class Problem5 {
 
 
     public static class MyReducer1 extends
-        Reducer<Text, IntWritable, Text, LongWritable> 
+        Reducer<Text, IntWritable, Text, LongWritable>
     {
-        public void reduce(Text key, Iterable<IntWritable> values, Context context) 
-             throws IOException, InterruptedException 
+        public void reduce(Text key, Iterable<IntWritable> values, Context context)
+            throws IOException, InterruptedException
         {
             // Total the list of values associated with the address.
             long count = 0;
@@ -82,33 +82,40 @@ public class Problem5 {
      * This mapper finds the domain with the most users
      */
     public static class MyMapper2 extends
-        Mapper<Object, Text, Text, IntWritable> 
+        Mapper<Object, Text, Text, Text>
     {
-        public void map(Object key, Text value, Context context) 
-            throws IOException, InterruptedException 
+        public void map(Object key, Text value, Context context)
+            throws IOException, InterruptedException
         {
             // Convert the Text object for the value to a string
             String line = value.toString();
 
-            System.out.println(line);
+            // replace tab with comma
+            // String line_reformat = line.replace("\t", ",");
+
+            System.out.println("line: " + line.getClass().getName() + " " + line);
+
+            // write to context: constant, (domain, num users)
+            // context.write(new Text("domain sum"), new Text(line));
         }
     }
 
 
     public static class MyReducer2 extends
-        Reducer<Text, IntWritable, Text, LongWritable> 
+        Reducer<Text, Text, Text, LongWritable>
     {
-        public void reduce(Text key, Iterable<IntWritable> values, Context context) 
-             throws IOException, InterruptedException 
+        public void reduce(Text key, Iterable<Text> values, Context context)
+            throws IOException, InterruptedException
         {
-            return;
+            // System.out.println("key: " + key);
+            // System.out.println("values: " + values);
         }
     }
 
     public static void main(String[] args) throws Exception {
         /*
-	 * First job in a chain of two jobs
-	 */
+  * First job in a chain of two jobs
+  */
         Configuration conf = new Configuration();
         Job job1 = Job.getInstance(conf, "problem 5");
         job1.setJarByClass(Problem5.class);
@@ -132,9 +139,9 @@ public class Problem5 {
 
 
         /*
-	 * Second job in a chain of two jobs
-	 */
-        Configuration conf = new Configuration();
+  * Second job in a chain of two jobs
+  */
+//        Configuration conf = new Configuration();
         Job job2 = Job.getInstance(conf, "problem 5");
         job2.setJarByClass(Problem5.class);
 
