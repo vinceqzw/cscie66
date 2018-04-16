@@ -65,8 +65,8 @@ public class Problem5 {
     public static class MyReducer1 extends
         Reducer<Text, IntWritable, Text, LongWritable>
     {
-        public void reduce(Text key, Iterable<IntWritable> values, Context context)
-            throws IOException, InterruptedException
+        public void reduce(Text key, Iterable<IntWritable> values,
+            Context context) throws IOException, InterruptedException
         {
             // Total the list of values associated with the address.
             long count = 0;
@@ -90,11 +90,6 @@ public class Problem5 {
             // Convert the Text object for the value to a string
             String line = value.toString();
 
-            // replace tab with comma
-            // String line_reformat = line.replace("\t", ",");
-
-            System.out.println("line: " + line.getClass().getName() + " " + line);
-
             // write to context: constant, (domain, num users)
             context.write(new Text("domain sum"), new Text(line));
         }
@@ -102,20 +97,35 @@ public class Problem5 {
 
 
     public static class MyReducer2 extends
-        Reducer<Text, IntWritable, Text, LongWritable>
+        Reducer<Text, Text, Text, LongWritable>
     {
-        public void reduce(Text key, Iterable<IntWritable> values, Context context)
-            throws IOException, InterruptedException
+        public void reduce(Text key, Iterable<Text> values,
+            Context context) throws IOException, InterruptedException
         {
-            System.out.println("key: " + key.getClass().getName() + " " + key);
-            System.out.println("values: " + values.getClass().getName() + " " + values);
+            String domain_max = "";
+            long num_users_max = 0;
+
+            for (Text val_text : values) {
+                String val = val_text.toString();
+                String[] val_split = val.split("\t");
+                String domain = val_split[0];
+                long num_users = Long.valueOf(val_split[1]);
+
+                if (num_users > num_users_max) {
+                    num_users_max = num_users;
+                    domain_max = domain;
+                }
+            }
+
+            context.write(new Text(domain_max),
+                new LongWritable(num_users_max));
         }
     }
 
     public static void main(String[] args) throws Exception {
-        /*
-  * First job in a chain of two jobs
-  */
+    /*
+     * First job in a chain of two jobs
+     */
         Configuration conf = new Configuration();
         Job job1 = Job.getInstance(conf, "problem 5");
         job1.setJarByClass(Problem5.class);
