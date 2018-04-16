@@ -67,7 +67,7 @@ public class Problem6 {
         public void reduce(IntWritable key, Iterable<IntWritable> values,
             Context context) throws IOException, InterruptedException
         {
-            // Total the list of values associated with the address.
+            // Total the number of friends associated with the user.
             int count = 0;
             for (IntWritable val : values) {
                 count += val.get();
@@ -78,7 +78,7 @@ public class Problem6 {
     }
 
     /*
-     * This mapper finds the domain with the most users
+     * This mapper finds the user with the most friends
      */
     public static class MyMapper2 extends
         Mapper<Object, Text, Text, Text>
@@ -89,35 +89,39 @@ public class Problem6 {
             // Convert the Text object for the value to a string
             String line = value.toString();
 
-            // write to context: constant, (domain, num users)
-            context.write(new Text("domain sum"), new Text(line));
+            // write to context: constant, (user ID, num friends)
+            context.write(new Text("most friends"), new Text(line));
         }
     }
 
 
     public static class MyReducer2 extends
-        Reducer<Text, Text, Text, LongWritable>
+        Reducer<Text, Text, Text, IntWritable>
     {
         public void reduce(Text key, Iterable<Text> values,
             Context context) throws IOException, InterruptedException
         {
-            String domain_max = "";
-            long num_users_max = 0;
+            String user_id_max_friends = "";
+            int num_friends_max = 0;
 
+            // find which user has most friends
             for (Text val_text : values) {
                 String val = val_text.toString();
+                // Separate user ID and num friends by tab
                 String[] val_split = val.split("\t");
-                String domain = val_split[0];
-                long num_users = Long.valueOf(val_split[1]);
+                String user_id = val_split[0];
+                int num_friends = Integer.valueOf(val_split[1]);
 
-                if (num_users > num_users_max) {
-                    num_users_max = num_users;
-                    domain_max = domain;
+                // if current user as new max, overwrite previous user/max
+                if (num_friends > num_friends_max) {
+                    num_friends_max = num_friends;
+                    user_id_max_friends = user_id;
                 }
             }
 
-            context.write(new Text(domain_max),
-                new LongWritable(num_users_max));
+            // write the winning user ID and number of friends
+            context.write(new Text(user_id_max_friends),
+                new IntWritable(num_friends_max));
         }
     }
 
@@ -154,9 +158,9 @@ public class Problem6 {
         job2.setReducerClass(MyReducer2.class);
 
         job2.setOutputKeyClass(Text.class);
-        job2.setOutputValueClass(LongWritable.class);
-        //   job2.setMapOutputKeyClass(Text.class);
-        job2.setMapOutputValueClass(IntWritable.class);
+        job2.setOutputValueClass(Text.class);
+        job2.setMapOutputKeyClass(Text.class);
+        job2.setMapOutputValueClass(Text.class);
 
         job2.setInputFormatClass(TextInputFormat.class);
         FileInputFormat.addInputPath(job2, new Path(args[1]));

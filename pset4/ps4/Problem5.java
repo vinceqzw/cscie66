@@ -107,16 +107,19 @@ public class Problem5 {
 
             for (Text val_text : values) {
                 String val = val_text.toString();
+                // Separate domain and num users by tab
                 String[] val_split = val.split("\t");
                 String domain = val_split[0];
                 long num_users = Long.valueOf(val_split[1]);
 
+                // if current domain has new max, overwrite previous domain/max
                 if (num_users > num_users_max) {
                     num_users_max = num_users;
                     domain_max = domain;
                 }
             }
 
+            // write the winning domain and number of users
             context.write(new Text(domain_max),
                 new LongWritable(num_users_max));
         }
@@ -149,8 +152,8 @@ public class Problem5 {
 
 
         /*
-  * Second job in a chain of two jobs
-  */
+         * Second job in a chain of two jobs
+         */
         Configuration conf2 = new Configuration();
         Job job2 = Job.getInstance(conf2, "problem 5");
         job2.setJarByClass(Problem5.class);
