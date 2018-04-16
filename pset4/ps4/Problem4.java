@@ -49,13 +49,16 @@ public class Problem4 {
             String[] fields = line.split(",");
 
             // Email address is optional, but would be in fields[4] if present
-            String addr = fields[4];
-            System.out.println(addr);
-            if (addr.matches(".+@.+\\..+")) { // regex to find x@x.x
-                String domain = addr.split("@")[1];
-                System.out.print("found domain: ");
-                System.out.println(domain);
-                context.write(new Text(domain), new IntWritable(1));
+            if (fields.length >= 5) {
+                String addr = fields[4];
+//                System.out.println(addr);
+                // make sure addr is an address
+                if (addr.matches(".+@.+\\..+")) { // regex to find x@x.x
+                    String domain = addr.split("@")[1];
+//                    System.out.print("found domain: ");
+//                    System.out.println(domain);
+                    context.write(new Text(domain), new IntWritable(1));
+                }
             }
 
         }
