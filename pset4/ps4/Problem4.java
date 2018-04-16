@@ -48,10 +48,14 @@ public class Problem4 {
             // Split the line on commas
             String[] fields = line.split(",");
 
-            // Email address is optional, but would be in words[4] if present
-            String addr = words[4];
-            if (addr.matches(".+@.+\..+")) { // regex to find x@x.x
-                 context.write(new Text(addr), new IntWritable(1));
+            // Email address is optional, but would be in fields[4] if present
+            String addr = fields[4];
+            System.out.println(addr);
+            if (addr.matches(".+@.+\\..+")) { // regex to find x@x.x
+                String domain = addr.split("@")[1];
+                System.out.print("found domain: ");
+                System.out.println(domain);
+                context.write(new Text(domain), new IntWritable(1));
             }
 
         }
@@ -67,10 +71,10 @@ public class Problem4 {
             // Total the list of values associated with the address.
             long count = 0;
             for (IntWritable val : values) {
-                count += val.get()
+                count += val.get();
             }
 
-            context.write(key, new LongWritable(count))
+            context.write(key, new LongWritable(count));
         }
     }
 
