@@ -9,8 +9,8 @@ import java.util.*;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 
-/* 
- * interfaces and classes for Hadoop data types that you may 
+/*
+ * interfaces and classes for Hadoop data types that you may
  * need for some or all of the problems from PS 4
  */
 import org.apache.hadoop.io.ArrayWritable;
@@ -38,7 +38,7 @@ public class Problem7 {
         public IntArrayWritable() {
             super(IntWritable.class);
         }
-        
+
         public IntArrayWritable(IntWritable[] values) {
             super(IntWritable.class, values);
         }
@@ -53,9 +53,9 @@ public class Problem7 {
         }
     }
 
-    /* 
-     * Put your mapper and reducer classes here. 
-     * Remember that they should be static nested classes. 
+    /*
+     * Put your mapper and reducer classes here.
+     * Remember that they should be static nested classes.
      */
 
     public static void main(String[] args) throws Exception {
