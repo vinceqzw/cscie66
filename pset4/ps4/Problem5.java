@@ -32,10 +32,78 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 public class Problem5 {
 
-    /* 
-     * Put your mapper and reducer classes here. 
-     * Remember that they should be static nested classes. 
+    /*
+     * This mapper maps each input line to a set of (word, 1) pairs, 
+     * with one pair for each word in the line.
      */
+    public static class MyMapper1 extends
+        Mapper<Object, Text, Text, IntWritable> 
+    {
+        public void map(Object key, Text value, Context context) 
+            throws IOException, InterruptedException 
+        {
+            // Convert the Text object for the value to a String.
+            String line = value.toString();
+
+            // Split the line on commas
+            String[] fields = line.split(",");
+
+            // Email address is optional, but would be in fields[4] if present
+            if (fields.length >= 5) {
+                String addr = fields[4];
+                // make sure addr is an address
+                if (addr.matches(".+@.+\\..+")) { // regex to find x@x.x
+                    String domain = addr.split("@|;")[1];// split on @ or ;, take the second piece
+                    context.write(new Text(domain), new IntWritable(1));
+                }
+            }
+
+        }
+    }
+
+
+    public static class MyReducer1 extends
+        Reducer<Text, IntWritable, Text, LongWritable> 
+    {
+        public void reduce(Text key, Iterable<IntWritable> values, Context context) 
+             throws IOException, InterruptedException 
+        {
+            // Total the list of values associated with the address.
+            long count = 0;
+            for (IntWritable val : values) {
+                count += val.get();
+            }
+
+            context.write(key, new LongWritable(count));
+        }
+    }
+
+    /*
+     * This mapper finds the domain with the most users
+     */
+    public static class MyMapper2 extends
+        Mapper<Object, Text, Text, IntWritable> 
+    {
+        public void map(Object key, Text value, Context context) 
+            throws IOException, InterruptedException 
+        {
+            // Convert the Text object for the value to a string
+            String line = value.toString();
+
+            System.out.println(line);
+        }
+    }
+
+
+    public static class MyReducer2 extends
+        Reducer<Text, IntWritable, Text, LongWritable> 
+    {
+        public void reduce(Text key, Iterable<IntWritable> values, Context context) 
+             throws IOException, InterruptedException 
+        {
+            return;
+        }
+    }
 
     public static void main(String[] args) throws Exception {
         /*
@@ -48,8 +116,8 @@ public class Problem5 {
         /* CHANGE THE CLASS NAMES AS NEEDED IN THE METHOD CALLS BELOW */
         // See Problem 4.java for comments describing the calls
 
-        job1.setMapperClass(MyMapper.class);
-        job1.setReducerClass(MyReducer.class);
+        job1.setMapperClass(MyMapper1.class);
+        job1.setReducerClass(MyReducer1.class);
 
         job1.setOutputKeyClass(Text.class);
         job1.setOutputValueClass(LongWritable.class);
@@ -73,8 +141,8 @@ public class Problem5 {
         /* CHANGE THE CLASS NAMES AS NEEDED IN THE METHOD CALLS BELOW */
         // See Problem 4.java for comments describing the calls
 
-        job2.setMapperClass(MyMapper.class);
-        job2.setReducerClass(MyReducer.class);
+        job2.setMapperClass(MyMapper2.class);
+        job2.setReducerClass(MyReducer2.class);
 
         job2.setOutputKeyClass(Text.class);
         job2.setOutputValueClass(LongWritable.class);
