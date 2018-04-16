@@ -32,10 +32,47 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 public class Problem4 {
 
-    /* 
-     * Put your mapper and reducer classes here. 
-     * Remember that they should be static nested classes. 
+    /*
+     * This mapper maps each input line to a set of (word, 1) pairs, 
+     * with one pair for each word in the line.
      */
+    public static class MyMapper extends
+        Mapper<Object, Text, Text, IntWritable> 
+    {
+        public void map(Object key, Text value, Context context) 
+            throws IOException, InterruptedException 
+        {
+            // Convert the Text object for the value to a String.
+            String line = value.toString();
+
+            // Split the line on commas
+            String[] fields = line.split(",");
+
+            // Email address is optional, but would be in words[4] if present
+            String addr = words[4];
+            if (addr.matches(".+@.+\..+")) { // regex to find x@x.x
+                 context.write(new Text(addr), new IntWritable(1));
+            }
+
+        }
+    }
+
+
+    public static class MyReducer extends
+        Reducer<Text, IntWritable, Text, LongWritable> 
+    {
+        public void reduce(Text key, Iterable<IntWritable> values, Context context) 
+             throws IOException, InterruptedException 
+        {
+            // Total the list of values associated with the address.
+            long count = 0;
+            for (IntWritable val : values) {
+                count += val.get()
+            }
+
+            context.write(key, new LongWritable(count))
+        }
+    }
 
     public static void main(String[] args) throws Exception {
         Configuration conf = new Configuration();
