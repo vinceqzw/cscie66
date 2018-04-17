@@ -2,6 +2,14 @@
  * Problem6.java
  */
 
+/**
+ * David Kalish
+ * davidpkalish@gmail.com
+ * cscie66
+ * pset4
+ * 4/18/18
+ */
+
 import java.io.IOException;
 import java.time.*;
 import java.util.*;
