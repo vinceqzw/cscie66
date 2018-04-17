@@ -69,8 +69,10 @@ public class Problem7 {
             String friends_str;
             int[] user_pair;
             String user_pair_str;
-            if (hasFriends(line)) {
-                friends = getFriends(line);
+
+            // if the line has a semicolon, then they have friends
+            if (line.contains(";")) {
+                friends = strToIntArr(line.split(";")[1]);
 
                 // make friendship pair
                 for (int friend : friends) {
@@ -98,12 +100,54 @@ public class Problem7 {
         public void reduce(Text key, Iterable<Text> values, Context context)
             throws IOException, InterruptedException
         {
+            // save the pair of users
             String pair = key.toString();
-            System.out.println("pair: " + pair);
+            // System.out.println("pair: " + pair);
+
+            // convert their friends lists to int[] arrays
+            int i = 0;
+            int[][] friends_int = new int[2][];
             for (Text val : values) {
-                String friends = val.toString();
-                System.out.println("friends: " + friends);
+                friends_int[i] = strToIntArr(val.toString());
+                i++;
+                // System.out.println("friends_str: " + friends_str);
             }
+
+            System.out.println(pair);
+            System.out.println(Arrays.toString(friends_int[0]));
+            System.out.println(Arrays.toString(friends_int[1]));
+
+            // convert the friends list in[] arrays to hashsets
+            HashSet<Integer> friends_A = new HashSet<>();
+            HashSet<Integer> friends_B = new HashSet<>();
+            for (int friend : friends_int[0]) {
+                friends_A.add(friend);
+            }
+            for (int friend : friends_int[1]) {
+                friends_B.add(friend);
+            }
+
+            // get the intersection, save to friends_A
+            friends_A.retainAll(friends_B);
+
+            // convert hashset back to int[]
+            int[] intersect_int = new int[friends_A.size()];
+            i = 0;
+            for (int friend : friends_A) {
+                intersect_int[i++] = friend;
+            }
+            // Integer[] intersect_int = friends_A.toArray(
+            //     new Integer[friends_A.size()]);
+
+            // convert int[] intersection to 1,2,3 formatted string
+            String intersection = intArrToStr(intersect_int);
+            System.out.println("intersection " + intersection);
+
+            // if there is an intersection, write it!
+            if (!intersection.isEmpty()) {
+                context.write(key, new Text(intersection));
+            }
+
         }
     }
 
@@ -131,17 +175,11 @@ public class Problem7 {
         job.waitForCompletion(true);
     }
 
-    private static boolean hasFriends(String user_line) {
-        // if the line has a semicolon, then they have friends
-        if (user_line.contains(";")) return true;
-        else return false;
-    }
-
-    private static int[] getFriends(String user_line) {
-        // return the user's friends as an int[]
+    private static int[] strToIntArr(String str_list) {
+        // convert String "1,2,3" to int[] [1, 2, 3]
 
         // get friends as string array
-        String[] friends_str = user_line.split(";")[1].split(",");
+        String[] friends_str = str_list.split(",");
         // convert friends string to array of ints
         int[] friends_arr = new int[friends_str.length];
         for (int i = 0; i < friends_str.length; i++) {
@@ -152,7 +190,7 @@ public class Problem7 {
     }
 
     private static String intArrToStr(int[] int_arr) {
-        // convert [1, 2, 3] to 1,2,3
+        // convert int[] [1, 2, 3] to String "1,2,3"
         String s = Arrays.toString(int_arr);
         s = s.replaceAll("[\\[\\] ]", "");
         return s;
