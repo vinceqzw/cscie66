@@ -127,8 +127,6 @@ public class Problem7 {
             for (int friend : friends_A) {
                 intersect_int[i++] = friend;
             }
-            // Integer[] intersect_int = friends_A.toArray(
-            //     new Integer[friends_A.size()]);
 
             // convert int[] intersection to 1,2,3 formatted string
             String intersection = intArrToStr(intersect_int);
@@ -175,7 +173,6 @@ public class Problem7 {
         for (int i = 0; i < friends_str.length; i++) {
             friends_arr[i] = Integer.valueOf(friends_str[i]);
         }
-
         return friends_arr;
     }
 
