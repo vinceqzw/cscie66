@@ -53,10 +53,59 @@ public class Problem7 {
         }
     }
 
-    /*
-     * Put your mapper and reducer classes here.
-     * Remember that they should be static nested classes.
-     */
+    public static class MyMapper extends
+        Mapper<Object, Text, Text, Text>
+    {
+        public void map(Object key, Text value, Context context)
+            throws IOException, InterruptedException
+        {
+            // Convert the Text object for the value to a String.
+            String line = value.toString();
+
+            int user_id = Integer.valueOf(line.split(",")[0]);
+
+            // If there's a semicolon, then they have friend values
+            int[] friends;
+            String friends_str;
+            int[] user_pair;
+            String user_pair_str;
+            if (hasFriends(line)) {
+                friends = getFriends(line);
+
+                // make friendship pair
+                for (int friend : friends) {
+                    if (user_id < friend) user_pair = new int[]{user_id, friend};
+                    else user_pair = new int[]{friend, user_id};
+
+                    user_pair_str = intArrToStr(user_pair);
+                    friends_str = intArrToStr(friends);
+
+                    // System.out.println("user_pair_str: " + user_pair_str);
+                    // System.out.println("friends:       " + friends_str);
+
+                    // write the pair and the main user's friends list
+                    context.write(new Text(user_pair_str),
+                        new Text(friends_str));
+                }
+            }
+        }
+    }
+
+
+    public static class MyReducer extends
+        Reducer<Text, Text, Text, Text>
+    {
+        public void reduce(Text key, Iterable<Text> values, Context context)
+            throws IOException, InterruptedException
+        {
+            String pair = key.toString();
+            System.out.println("pair: " + pair);
+            for (Text val : values) {
+                String friends = val.toString();
+                System.out.println("friends: " + friends);
+            }
+        }
+    }
 
     public static void main(String[] args) throws Exception {
         Configuration conf = new Configuration();
@@ -71,14 +120,41 @@ public class Problem7 {
         job.setReducerClass(MyReducer.class);
 
         job.setOutputKeyClass(Text.class);
-        job.setOutputValueClass(LongWritable.class);
-        //   job.setMapOutputKeyClass(Text.class);
-        job.setMapOutputValueClass(IntWritable.class);
+        job.setOutputValueClass(Text.class);
+        job.setMapOutputKeyClass(Text.class);
+        job.setMapOutputValueClass(Text.class);
 
         job.setInputFormatClass(TextInputFormat.class);
         FileInputFormat.addInputPath(job, new Path(args[0]));
         FileOutputFormat.setOutputPath(job, new Path(args[1]));
 
         job.waitForCompletion(true);
+    }
+
+    private static boolean hasFriends(String user_line) {
+        // if the line has a semicolon, then they have friends
+        if (user_line.contains(";")) return true;
+        else return false;
+    }
+
+    private static int[] getFriends(String user_line) {
+        // return the user's friends as an int[]
+
+        // get friends as string array
+        String[] friends_str = user_line.split(";")[1].split(",");
+        // convert friends string to array of ints
+        int[] friends_arr = new int[friends_str.length];
+        for (int i = 0; i < friends_str.length; i++) {
+            friends_arr[i] = Integer.valueOf(friends_str[i]);
+        }
+
+        return friends_arr;
+    }
+
+    private static String intArrToStr(int[] int_arr) {
+        // convert [1, 2, 3] to 1,2,3
+        String s = Arrays.toString(int_arr);
+        s = s.replaceAll("[\\[\\] ]", "");
+        return s;
     }
 }
