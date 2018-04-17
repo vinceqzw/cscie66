@@ -82,9 +82,6 @@ public class Problem7 {
                     user_pair_str = intArrToStr(user_pair);
                     friends_str = intArrToStr(friends);
 
-                    // System.out.println("user_pair_str: " + user_pair_str);
-                    // System.out.println("friends:       " + friends_str);
-
                     // write the pair and the main user's friends list
                     context.write(new Text(user_pair_str),
                         new Text(friends_str));
@@ -102,7 +99,6 @@ public class Problem7 {
         {
             // save the pair of users
             String pair = key.toString();
-            // System.out.println("pair: " + pair);
 
             // convert their friends lists to int[] arrays
             int i = 0;
@@ -110,12 +106,7 @@ public class Problem7 {
             for (Text val : values) {
                 friends_int[i] = strToIntArr(val.toString());
                 i++;
-                // System.out.println("friends_str: " + friends_str);
             }
-
-            System.out.println(pair);
-            System.out.println(Arrays.toString(friends_int[0]));
-            System.out.println(Arrays.toString(friends_int[1]));
 
             // convert the friends list in[] arrays to hashsets
             HashSet<Integer> friends_A = new HashSet<>();
@@ -141,7 +132,6 @@ public class Problem7 {
 
             // convert int[] intersection to 1,2,3 formatted string
             String intersection = intArrToStr(intersect_int);
-            System.out.println("intersection " + intersection);
 
             // if there is an intersection, write it!
             if (!intersection.isEmpty()) {
