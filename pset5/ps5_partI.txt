@@ -16,14 +16,17 @@ pset5
         B: 510
         C: 430
         D: 200
-        Disk is only written to on commits; committed transactions and dirty log records are written. So only values before Record 60 are written.
+        Disk is only written to on commits; committed transactions and dirty
+        log records are written. So only values before Record 60 are written.
 
     1.3 undo-only
         A: 150
         B: 510
         C: 400
         D: 200
-        Disk written at commit. Only write DB pages changed by committed TXN, so Record 30 is not written because it was changed by txn2, but only txn1 was committed
+        Disk written at commit. Only write DB pages changed by committed TXN,
+        so Record 30 is not written because it was changed by txn2, but only
+        txn1 was committed
 
     1.4 undo-redo recovery steps (no LSNs)
         1. undo: B = 510
@@ -48,4 +51,86 @@ pset5
 
 
 2: Data Models for a NoSQL Document Database
-    2.1
+    2.1.
+        song document
+        {
+            _id: "0123456789",
+            name: "Brave",
+            duration: 219,
+            genre: "pop",
+            best_chart_rank: 23,
+            royalties_due: 1200.00
+        }
+
+        artist document
+        {
+            _id: "9876543",
+            name: "Sara Bareilles",
+            label: "Epic",
+            dob: "1979-12-07",
+            primary_genre: "pop"
+        }
+
+        sings document
+        {
+            _id: "0123456789",
+            artistID: "9876543"
+        }
+
+        played document
+        {
+            _id: "0123456789",
+            date: "2015-04-22",
+            time: "17:00"
+        }
+
+
+    2.2: advantage: less redundancy. Many songs have the same artist, so this
+        way, each song can point to the same entry in the Artist document
+        instead of possibly being embedded in the Sings document, or songs
+        being embedded in the Played document.
+
+        disadvantage: needs to make more requests to complete an operation,
+        because it needs to search multiple documents
+
+    2.3
+        Song document
+        {
+            _id: "0123456789"
+            name: "Brave",
+            duration: 219,
+            genre: "pop",
+            best_chart_rank: 23,
+            royalties_due: 1200.00,
+            played: {
+                        date: "2015-04-22",
+                        time: "17:00"
+                    },
+            artist: {
+                        name: "Sara Bareilles",
+                        label: "Epic",
+                        dob: "1979-12-07",
+                        primary_genre: "pop"
+                    }
+        }
+
+    2.4 advantage: fewer requests for an operation since everything is in one
+        document and embedded.
+
+        disadvantage: there will be duplicate information (and possible to
+        introduce inconsistencies). When another song by Sara Bareilles is added
+        to the database, all her Artist data will be re-embedded into the new
+        song's entry
+
+    2.5 Using the reference-based approach, when a customer plays a song, the
+        Played document will be updated with a new entry containing the ID of
+        the song being played, and the date/time that it was played.  The
+        royalties_due field will be updated based on how many times the song
+        appears in the Played document.
+
+        Using embedded relationships, a new Played sub-document will be added
+        with the date/time it was played.The royalties_due field will be
+        updated based on how many Played sub-documents appear in the Song's
+        document.
+
+3: Two-phase commit
