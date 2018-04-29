@@ -134,3 +134,34 @@ pset5
         document.
 
 3: Two-phase commit
+    3.1
+
+    1. receive Prepare message
+    2. force all dirty log records to disk
+    3. force database pages changed by the txn to disk
+    4. write the commit log record
+    5. force the commit log record to disk
+    6. report ready-to-commit
+
+
+    3.2
+
+    Once the coordinator recovers, it checks its sites to see what state they
+    are in.  
+    -   If a site hasn't received a prepare message for T or if it's been
+    told to prepare but hasn't sent the ready message yet, the coordinator can
+    abort T.
+    -   If a site has received a prepare message and sent back a ready message, 
+    but the coordinator didn't tell the site to commit/abort, it checks the
+    other sites.  
+        -   If other sites have commit records, then the coordinator must have
+        sent a commit that those sites have received, so the coordinator can 
+        send this site another commit message.
+        -   If other sites have abort records, then the coordnator must have
+        sent an abort to them and can send a new abort message to this site.
+        -   If other sites have no commit or abort records, and at least one 
+        doesn't have a ready record either, the coordinator aborts T because it
+        must not have committed.
+        -   If all sites have ready records but no commit/abort records, the
+        coordinator must check its own record to try andsee what it was going
+        to do.
