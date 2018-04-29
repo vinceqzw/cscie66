@@ -2,8 +2,8 @@
  * CSCI E-66: Problem Set 5, MongoDB Programming Problems
  *
  * Put your name and email address below:
- *     name:
- *     email:
+ *     name:    David Kalish
+ *     email:   davidpkalish@gmail.com
  */
 
 /*********************************************************************
