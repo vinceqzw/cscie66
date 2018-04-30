@@ -140,8 +140,16 @@ print()
 print("results of query 6")
 print("------------------")
 
-results =
-
+results = db.movies.aggregate(
+    { $group: { _id: "$rating",
+                average_runtime: { $avg: "$runtime"}
+              }
+    },
+    { $project: { rating: "$_id",
+                  average_runtime: 1,
+                  _id: 0}
+    }
+)
 printResults(results)
 
 
@@ -154,7 +162,7 @@ print()
 print("results of query 7")
 print("------------------")
 
-results =
+results = 
 
 printResults(results)
 
