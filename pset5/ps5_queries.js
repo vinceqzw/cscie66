@@ -257,7 +257,22 @@ print()
 print("results of query 10")
 print("-------------------")
 
-results = 
+results = db.oscars.aggregate(
+    {
+        $match: {
+            year: 2003
+        }
+    },
+    {
+        $project: {
+            _id: 0,
+            type: 1,
+            person: "$person.name",
+            movie: "$movie.name"
+        }
+    }
+
+)
 
 printResults(results)
 
