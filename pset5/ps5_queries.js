@@ -1,4 +1,4 @@
-/* 
+/*
  * CSCI E-66: Problem Set 5, MongoDB Programming Problems
  *
  * Put your name and email address below:
@@ -8,8 +8,8 @@
 
 /*********************************************************************
  * REMEMBER:
- *  1. For each problem, you should assign your MongoDB method call 
- *     to the variable called "results" that we have provided. 
+ *  1. For each problem, you should assign your MongoDB method call
+ *     to the variable called "results" that we have provided.
  *     Follow the model shown in the sample query below.
  *  2. You should *not* make any other additions or modifications to
  *     this file.
@@ -40,7 +40,7 @@ print()
 print("results of sample query")
 print("-----------------------")
 
-results = db.movies.find( { year: 1990 }, 
+results = db.movies.find( { year: 1990 },
                           { name: 1, _id: 0 } )
 
 printResults(results)
@@ -55,7 +55,8 @@ print()
 print("results of query 1")
 print("------------------")
 
-results = 
+results =db.movies.find( { year: 2000, rating: "PG-13" },
+                          { name: 1, _id: 0 } )
 
 printResults(results)
 
@@ -69,7 +70,7 @@ print()
 print("results of query 2")
 print("------------------")
 
-results = 
+results =
 
 printResults(results)
 
@@ -83,7 +84,7 @@ print()
 print("results of query 3")
 print("------------------")
 
-results = 
+results =
 
 printResults(results)
 
@@ -97,7 +98,7 @@ print()
 print("results of query 4")
 print("------------------")
 
-results = 
+results =
 
 printResults(results)
 
@@ -111,7 +112,7 @@ print()
 print("results of query 5")
 print("------------------")
 
-results = 
+results =
 
 printResults(results)
 
@@ -125,7 +126,7 @@ print()
 print("results of query 6")
 print("------------------")
 
-results = 
+results =
 
 printResults(results)
 
@@ -139,7 +140,7 @@ print()
 print("results of query 7")
 print("------------------")
 
-results = 
+results =
 
 printResults(results)
 
@@ -153,7 +154,7 @@ print()
 print("results of query 8")
 print("------------------")
 
-results = 
+results =
 
 printResults(results)
 
@@ -167,7 +168,7 @@ print()
 print("results of query 9")
 print("------------------")
 
-results = 
+results =
 
 printResults(results)
 
@@ -181,7 +182,7 @@ print()
 print("results of query 10")
 print("-------------------")
 
-results = 
+results =
 
 printResults(results)
 
@@ -197,6 +198,6 @@ print()
 print("results of query 11")
 print("-------------------")
 
-results = 
+results =
 
 printResults(results)
