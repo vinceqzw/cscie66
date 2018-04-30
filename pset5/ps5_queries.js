@@ -107,7 +107,8 @@ print()
 print("results of query 4")
 print("------------------")
 
-results = 
+results = db.people.find( {hasDirected: true, pob: /France/},
+                          {name: 1, pob: 1, _id:0})
 
 printResults(results)
 
