@@ -171,7 +171,7 @@ print()
 print("results of query 7")
 print("------------------")
 
-results = results = db.oscars.aggregate(
+results = db.oscars.aggregate(
     {
         $group:
         {
@@ -205,7 +205,12 @@ print()
 print("results of query 8")
 print("------------------")
 
-results =
+results = db.movies.distinct(
+    "actors.name",
+    {
+        "directors.name": "Steven Spielberg"
+    }
+)
 
 printResults(results)
 
