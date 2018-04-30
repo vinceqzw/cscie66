@@ -55,7 +55,7 @@ print()
 print("results of query 1")
 print("------------------")
 
-results =db.movies.find( { year: 2000, rating: "PG-13" },
+results = db.movies.find( { year: 2000, rating: "PG-13" },
                           { name: 1, _id: 0 } )
 
 printResults(results)
@@ -70,7 +70,11 @@ print()
 print("results of query 2")
 print("------------------")
 
-results =
+results = db.people.find( { $or: [ { name: "Emma Stone" },
+                                   { name: "Viola Davis" }
+                                 ]
+                          },
+                          { name: 1, pob: 1, dob: 1, _id: 0 } )
 
 printResults(results)
 
@@ -84,7 +88,12 @@ print()
 print("results of query 3")
 print("------------------")
 
-results =
+results = db.oscars.find( { $and: [ { year: { $gte: 1990}},
+                                    { year: { $lte: 1999}}
+                                  ],
+                            type: "BEST-PICTURE"
+                          },
+                          { "movie.name": 1, year: 1, _id: 0 } )
 
 printResults(results)
 
@@ -98,7 +107,7 @@ print()
 print("results of query 4")
 print("------------------")
 
-results =
+results = 
 
 printResults(results)
 
