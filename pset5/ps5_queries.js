@@ -224,7 +224,26 @@ print()
 print("results of query 9")
 print("------------------")
 
-results =
+results = db.movies.aggregate(
+    {
+        $match: {
+            genre: /N/
+        }
+    },
+    {
+        $sort: {
+            runtime: -1
+        }
+    },
+    {
+        $limit: 1
+    },
+    {
+        $project: {
+            name: 1, runtime: 1, _id: 0
+        }
+    }
+)
 
 printResults(results)
 
@@ -238,7 +257,7 @@ print()
 print("results of query 10")
 print("-------------------")
 
-results =
+results = 
 
 printResults(results)
 
