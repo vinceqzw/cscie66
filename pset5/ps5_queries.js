@@ -123,9 +123,12 @@ print("results of query 5")
 print("------------------")
 
 results = db.movies.aggregate(
-    { $group: { _id: "$rating",
-                average_runtime: { $avg: "$runtime"}
-              }}
+    {
+        $group: {
+            _id: "$rating",
+            average_runtime: { $avg: "$runtime"}
+        }
+    }
 )
 
 printResults(results)
@@ -141,15 +144,21 @@ print("results of query 6")
 print("------------------")
 
 results = db.movies.aggregate(
-    { $group: { _id: "$rating",
-                average_runtime: { $avg: "$runtime"}
-              }
+    {
+        $group: {
+            _id: "$rating",
+            average_runtime: { $avg: "$runtime"}
+        }
     },
-    { $project: { rating: "$_id",
-                  average_runtime: 1,
-                  _id: 0}
+    {
+        $project: {
+            rating: "$_id",
+            average_runtime: 1,
+            _id: 0
+        }
     }
 )
+
 printResults(results)
 
 
@@ -162,7 +171,27 @@ print()
 print("results of query 7")
 print("------------------")
 
-results = 
+results = results = db.oscars.aggregate(
+    {
+        $group:
+        {
+            _id: "$movie.name",
+            count: {$sum: 1}
+        }
+    },
+    {
+        $match:
+        {
+            count: 4
+        }
+    },
+    {
+        $project:
+        {
+            _id: 1
+        }
+    }
+)
 
 printResults(results)
 
