@@ -1,0 +1,1450 @@
+MongoDB shell version: 2.4.14
+connecting to: test
+
+results of sample query
+-----------------------
+{ "name" : "Home Alone" }
+{ "name" : "Ghost" }
+{ "name" : "Dances with Wolves" }
+{ "name" : "Pretty Woman" }
+{ "name" : "Teenage Mutant Ninja Turtles" }
+{ "name" : "Reversal of Fortune" }
+{ "name" : "Misery" }
+{ "name" : "Goodfellas" }
+
+results of query 1
+------------------
+{ "name" : "Cast Away" }
+{ "name" : "Mission: Impossible II" }
+{ "name" : "What Women Want" }
+{ "name" : "Perfect Storm, The" }
+{ "name" : "Meet the Parents" }
+{ "name" : "X-Men" }
+{ "name" : "What Lies Beneath" }
+
+results of query 2
+------------------
+{
+	"name" : "Emma Stone",
+	"dob" : "1988-11-06",
+	"pob" : "Scottsdale, Arizona, USA"
+}
+{
+	"name" : "Viola Davis",
+	"dob" : "1965-08-11",
+	"pob" : "Saint Matthews, South Carolina, USA"
+}
+
+results of query 3
+------------------
+{ "year" : 1999, "movie" : { "name" : "Shakespeare in Love" } }
+{ "year" : 1998, "movie" : { "name" : "Titanic" } }
+{ "year" : 1997, "movie" : { "name" : "English Patient, The" } }
+{ "year" : 1996, "movie" : { "name" : "Braveheart" } }
+{ "year" : 1995, "movie" : { "name" : "Forrest Gump" } }
+{ "year" : 1994, "movie" : { "name" : "Schindler's List" } }
+{ "year" : 1993, "movie" : { "name" : "Unforgiven" } }
+{ "year" : 1992, "movie" : { "name" : "Silence of the Lambs, The" } }
+{ "year" : 1991, "movie" : { "name" : "Dances with Wolves" } }
+{ "year" : 1990, "movie" : { "name" : "Driving Miss Daisy" } }
+
+results of query 4
+------------------
+{ "name" : "Roman Polanski", "pob" : "Paris, France" }
+{ "name" : "Frank Darabont", "pob" : "Montebeliard, France" }
+{ "name" : "Jonathan Kaplan", "pob" : "Paris, France" }
+{ "name" : "William Wyler", "pob" : "Mulhouse, Haut-Rhin, Alsace, France" }
+{ "name" : "Olivier Dahan", "pob" : "La Ciotat, Bouches-du-Rhone, France" }
+{ "name" : "Louis Leterrier", "pob" : "Paris, France" }
+{ "name" : "Michel Hazanavicius", "pob" : "Paris, France" }
+
+results of query 5
+------------------
+[
+	{
+		"_id" : "GP",
+		"average_runtime" : 187
+	},
+	{
+		"_id" : "M",
+		"average_runtime" : 124
+	},
+	{
+		"_id" : "NC-17",
+		"average_runtime" : 114.5
+	},
+	{
+		"_id" : "G",
+		"average_runtime" : 117.62162162162163
+	},
+	{
+		"_id" : null,
+		"average_runtime" : 115.41726618705036
+	},
+	{
+		"_id" : "PG",
+		"average_runtime" : 112.46268656716418
+	},
+	{
+		"_id" : "R",
+		"average_runtime" : 126.20270270270271
+	},
+	{
+		"_id" : "PG-13",
+		"average_runtime" : 127.26108374384236
+	}
+]
+
+results of query 6
+------------------
+[
+	{
+		"average_runtime" : 187,
+		"rating" : "GP"
+	},
+	{
+		"average_runtime" : 124,
+		"rating" : "M"
+	},
+	{
+		"average_runtime" : 114.5,
+		"rating" : "NC-17"
+	},
+	{
+		"average_runtime" : 117.62162162162163,
+		"rating" : "G"
+	},
+	{
+		"average_runtime" : 115.41726618705036,
+		"rating" : null
+	},
+	{
+		"average_runtime" : 112.46268656716418,
+		"rating" : "PG"
+	},
+	{
+		"average_runtime" : 126.20270270270271,
+		"rating" : "R"
+	},
+	{
+		"average_runtime" : 127.26108374384236,
+		"rating" : "PG-13"
+	}
+]
+
+results of query 7
+------------------
+[
+	{
+		"_id" : "It Happened One Night"
+	},
+	{
+		"_id" : "West Side Story"
+	},
+	{
+		"_id" : "On the Waterfront"
+	},
+	{
+		"_id" : "Best Years of Our Lives, The"
+	},
+	{
+		"_id" : "Terms of Endearment"
+	},
+	{
+		"_id" : "Mrs. Miniver"
+	},
+	{
+		"_id" : "Going My Way"
+	},
+	{
+		"_id" : "Gone with the Wind"
+	},
+	{
+		"_id" : "Ben-Hur"
+	},
+	{
+		"_id" : "Silence of the Lambs, The"
+	},
+	{
+		"_id" : "From Here to Eternity"
+	},
+	{
+		"_id" : "Million Dollar Baby"
+	},
+	{
+		"_id" : "One Flew Over the Cuckoo's Nest"
+	},
+	{
+		"_id" : "Kramer vs. Kramer"
+	}
+]
+
+results of query 8
+------------------
+[
+	"Dee Wallace-Stone",
+	"Drew Barrymore",
+	"Henry Thomas",
+	"Peter Coyote",
+	"Robert MacNaughton",
+	"Bob Peck",
+	"Jeff Goldblum",
+	"Laura Dern",
+	"Richard Attenborough",
+	"Sam Neill",
+	"Cate Blanchett",
+	"Harrison Ford",
+	"Karen Allen",
+	"Ray Winstone",
+	"Shia LaBeouf",
+	"Lorraine Gary",
+	"Murray Hamilton",
+	"Richard Dreyfuss",
+	"Robert Shaw",
+	"Roy Scheider",
+	"John Rhys-Davies",
+	"Paul Freeman",
+	"Ronald Lacey",
+	"Dakota Fanning",
+	"Justin Chatwin",
+	"Miranda Otto",
+	"Tim Robbins",
+	"Tom Cruise",
+	"Julianne Moore",
+	"Pete Postlethwaite",
+	"Vince Vaughn",
+	"Edward Burns",
+	"Jeremy Davies",
+	"Matt Damon",
+	"Tom Hanks",
+	"Tom Sizemore",
+	"Alison Doody",
+	"Denholm Elliott",
+	"Sean Connery",
+	"Daniel Day-Lewis",
+	"David Strathairn",
+	"James Spader",
+	"Joseph Gordon-Levitt",
+	"Sally Field",
+	"Amrish Puri",
+	"Jonathan Ke Quan",
+	"Kate Capshaw",
+	"Roshan Seth",
+	"Christopher Walken",
+	"Leonardo DiCaprio",
+	"Martin Sheen",
+	"Nathalie Baye",
+	"Colin Farrell",
+	"Max von Sydow",
+	"Samantha Morton",
+	"Steve Harris",
+	"Ben Kingsley",
+	"Caroline Goodall",
+	"Jonathan Sagall",
+	"Liam Neeson",
+	"Ralph Fiennes",
+	"Brian Hutchison",
+	"Domenick Lombardozzi",
+	"Mark Fichera",
+	"Mark Rylance",
+	"Victor Verhaeghe"
+]
+
+results of query 9
+------------------
+[ { "name" : "Cars", "runtime" : 124 } ]
+
+results of query 10
+-------------------
+[
+	{
+		"type" : "BEST-PICTURE",
+		"movie" : "Chicago"
+	},
+	{
+		"type" : "BEST-ACTOR",
+		"person" : "Adrien Brody",
+		"movie" : "Pianist, The"
+	},
+	{
+		"type" : "BEST-ACTRESS",
+		"person" : "Nicole Kidman",
+		"movie" : "Hours, The"
+	},
+	{
+		"type" : "BEST-SUPPORTING-ACTOR",
+		"person" : "Chris Cooper",
+		"movie" : "Adaptation."
+	},
+	{
+		"type" : "BEST-SUPPORTING-ACTRESS",
+		"person" : "Catherine Zeta-Jones",
+		"movie" : "Chicago"
+	},
+	{
+		"type" : "BEST-DIRECTOR",
+		"person" : "Roman Polanski",
+		"movie" : "Pianist, The"
+	}
+]
+
+results of query 11
+-------------------
+[
+	{
+		"_id" : "Janet Gaynor",
+		"both" : 0
+	},
+	{
+		"_id" : "Mary Pickford",
+		"both" : 0
+	},
+	{
+		"_id" : "Marie Dressler",
+		"both" : 0
+	},
+	{
+		"_id" : "Lionel Barrymore",
+		"both" : 0
+	},
+	{
+		"_id" : "Charles Laughton",
+		"both" : 0
+	},
+	{
+		"_id" : "Clark Gable",
+		"both" : 0
+	},
+	{
+		"_id" : "Alice Brady",
+		"both" : 0
+	},
+	{
+		"_id" : "Paul Muni",
+		"both" : 0
+	},
+	{
+		"_id" : "Spencer Tracy",
+		"both" : 0
+	},
+	{
+		"_id" : "Hattie McDaniel",
+		"both" : 0
+	},
+	{
+		"_id" : "Mary Astor",
+		"both" : 0
+	},
+	{
+		"_id" : "Donald Crisp",
+		"both" : 0
+	},
+	{
+		"_id" : "Teresa Wright",
+		"both" : 0
+	},
+	{
+		"_id" : "Van Heflin",
+		"both" : 0
+	},
+	{
+		"_id" : "James Cagney",
+		"both" : 0
+	},
+	{
+		"_id" : "Charles Coburn",
+		"both" : 0
+	},
+	{
+		"_id" : "Paul Lukas",
+		"both" : 0
+	},
+	{
+		"_id" : "Dean Jagger",
+		"both" : 0
+	},
+	{
+		"_id" : "Forest Whitaker",
+		"both" : 0
+	},
+	{
+		"_id" : "Ronald Colman",
+		"both" : 0
+	},
+	{
+		"_id" : "Barry Fitzgerald",
+		"both" : 0
+	},
+	{
+		"_id" : "Philip Seymour Hoffman",
+		"both" : 0
+	},
+	{
+		"_id" : "Anne Revere",
+		"both" : 0
+	},
+	{
+		"_id" : "Kate Winslet",
+		"both" : 0
+	},
+	{
+		"_id" : "James Dunn",
+		"both" : 0
+	},
+	{
+		"_id" : "Robin Williams",
+		"both" : 0
+	},
+	{
+		"_id" : "Joan Crawford",
+		"both" : 0
+	},
+	{
+		"_id" : "Ben Johnson",
+		"both" : 0
+	},
+	{
+		"_id" : "Ray Milland",
+		"both" : 0
+	},
+	{
+		"_id" : "Art Carney",
+		"both" : 0
+	},
+	{
+		"_id" : "Melvyn Douglas",
+		"both" : 0
+	},
+	{
+		"_id" : "Fredric March",
+		"both" : 0
+	},
+	{
+		"_id" : "Claire Trevor",
+		"both" : 0
+	},
+	{
+		"_id" : "Jared Leto",
+		"both" : 0
+	},
+	{
+		"_id" : "Kim Basinger",
+		"both" : 0
+	},
+	{
+		"_id" : "Laurence Olivier",
+		"both" : 0
+	},
+	{
+		"_id" : "Josephine Hull",
+		"both" : 0
+	},
+	{
+		"_id" : "Helen Hayes",
+		"both" : 1
+	},
+	{
+		"_id" : "George Sanders",
+		"both" : 0
+	},
+	{
+		"_id" : "Charlton Heston",
+		"both" : 0
+	},
+	{
+		"_id" : "Judy Holliday",
+		"both" : 0
+	},
+	{
+		"_id" : "Robert Donat",
+		"both" : 0
+	},
+	{
+		"_id" : "Joe Pesci",
+		"both" : 0
+	},
+	{
+		"_id" : "Vivien Leigh",
+		"both" : 0
+	},
+	{
+		"_id" : "Vanessa Redgrave",
+		"both" : 0
+	},
+	{
+		"_id" : "Humphrey Bogart",
+		"both" : 0
+	},
+	{
+		"_id" : "Gary Cooper",
+		"both" : 0
+	},
+	{
+		"_id" : "Jessica Lange",
+		"both" : 1
+	},
+	{
+		"_id" : "Celeste Holm",
+		"both" : 0
+	},
+	{
+		"_id" : "Edmond O'Brien",
+		"both" : 0
+	},
+	{
+		"_id" : "Tim Robbins",
+		"both" : 0
+	},
+	{
+		"_id" : "William Holden",
+		"both" : 0
+	},
+	{
+		"_id" : "Grace Kelly",
+		"both" : 0
+	},
+	{
+		"_id" : "Anna Magnani",
+		"both" : 0
+	},
+	{
+		"_id" : "Benicio Del Toro",
+		"both" : 0
+	},
+	{
+		"_id" : "Anthony Quinn",
+		"both" : 0
+	},
+	{
+		"_id" : "Julia Roberts",
+		"both" : 0
+	},
+	{
+		"_id" : "Louise Fletcher",
+		"both" : 0
+	},
+	{
+		"_id" : "Joanne Woodward",
+		"both" : 0
+	},
+	{
+		"_id" : "Shirley Jones",
+		"both" : 0
+	},
+	{
+		"_id" : "Wendy Hiller",
+		"both" : 0
+	},
+	{
+		"_id" : "Ethel Barrymore",
+		"both" : 0
+	},
+	{
+		"_id" : "Colin Firth",
+		"both" : 0
+	},
+	{
+		"_id" : "Simone Signoret",
+		"both" : 0
+	},
+	{
+		"_id" : "Bing Crosby",
+		"both" : 0
+	},
+	{
+		"_id" : "Anne Baxter",
+		"both" : 0
+	},
+	{
+		"_id" : "George Chakiris",
+		"both" : 0
+	},
+	{
+		"_id" : "Patty Duke",
+		"both" : 0
+	},
+	{
+		"_id" : "Margaret Rutherford",
+		"both" : 0
+	},
+	{
+		"_id" : "David Niven",
+		"both" : 0
+	},
+	{
+		"_id" : "Patricia Neal",
+		"both" : 0
+	},
+	{
+		"_id" : "Sidney Poitier",
+		"both" : 0
+	},
+	{
+		"_id" : "Lila Kedrova",
+		"both" : 0
+	},
+	{
+		"_id" : "Peter Ustinov",
+		"both" : 0
+	},
+	{
+		"_id" : "Rex Harrison",
+		"both" : 0
+	},
+	{
+		"_id" : "Cate Blanchett",
+		"both" : 1
+	},
+	{
+		"_id" : "Julie Christie",
+		"both" : 0
+	},
+	{
+		"_id" : "Sandy Dennis",
+		"both" : 0
+	},
+	{
+		"_id" : "Warner Baxter",
+		"both" : 0
+	},
+	{
+		"_id" : "George C. Scott",
+		"both" : 0
+	},
+	{
+		"_id" : "Elizabeth Taylor",
+		"both" : 0
+	},
+	{
+		"_id" : "Audrey Hepburn",
+		"both" : 0
+	},
+	{
+		"_id" : "Daniel Day-Lewis",
+		"both" : 0
+	},
+	{
+		"_id" : "Shelley Winters",
+		"both" : 0
+	},
+	{
+		"_id" : "Victor McLaglen",
+		"both" : 0
+	},
+	{
+		"_id" : "Ellen Burstyn",
+		"both" : 0
+	},
+	{
+		"_id" : "Paul Scofield",
+		"both" : 0
+	},
+	{
+		"_id" : "Estelle Parsons",
+		"both" : 0
+	},
+	{
+		"_id" : "Jennifer Lawrence",
+		"both" : 0
+	},
+	{
+		"_id" : "Barbra Streisand",
+		"both" : 0
+	},
+	{
+		"_id" : "Walter Matthau",
+		"both" : 0
+	},
+	{
+		"_id" : "George Kennedy",
+		"both" : 0
+	},
+	{
+		"_id" : "Sally Field",
+		"both" : 0
+	},
+	{
+		"_id" : "Gloria Grahame",
+		"both" : 0
+	},
+	{
+		"_id" : "Ruth Gordon",
+		"both" : 0
+	},
+	{
+		"_id" : "Thomas Mitchell",
+		"both" : 0
+	},
+	{
+		"_id" : "Javier Bardem",
+		"both" : 0
+	},
+	{
+		"_id" : "Jack Albertson",
+		"both" : 0
+	},
+	{
+		"_id" : "Rachel Weisz",
+		"both" : 0
+	},
+	{
+		"_id" : "Cliff Robertson",
+		"both" : 0
+	},
+	{
+		"_id" : "Goldie Hawn",
+		"both" : 0
+	},
+	{
+		"_id" : "Gig Young",
+		"both" : 0
+	},
+	{
+		"_id" : "John Mills",
+		"both" : 0
+	},
+	{
+		"_id" : "Karl Malden",
+		"both" : 0
+	},
+	{
+		"_id" : "Cloris Leachman",
+		"both" : 0
+	},
+	{
+		"_id" : "Eileen Heckart",
+		"both" : 0
+	},
+	{
+		"_id" : "Roberto Benigni",
+		"both" : 0
+	},
+	{
+		"_id" : "Harold Russell",
+		"both" : 0
+	},
+	{
+		"_id" : "Liza Minnelli",
+		"both" : 0
+	},
+	{
+		"_id" : "Joel Grey",
+		"both" : 0
+	},
+	{
+		"_id" : "Marlon Brando",
+		"both" : 0
+	},
+	{
+		"_id" : "Joseph Schildkraut",
+		"both" : 0
+	},
+	{
+		"_id" : "John Houseman",
+		"both" : 0
+	},
+	{
+		"_id" : "Edmund Gwenn",
+		"both" : 0
+	},
+	{
+		"_id" : "Richard Dreyfuss",
+		"both" : 0
+	},
+	{
+		"_id" : "Ingrid Bergman",
+		"both" : 1
+	},
+	{
+		"_id" : "Adrien Brody",
+		"both" : 0
+	},
+	{
+		"_id" : "Lee Grant",
+		"both" : 0
+	},
+	{
+		"_id" : "Dorothy Malone",
+		"both" : 0
+	},
+	{
+		"_id" : "George Burns",
+		"both" : 0
+	},
+	{
+		"_id" : "Nicole Kidman",
+		"both" : 0
+	},
+	{
+		"_id" : "Peter Finch",
+		"both" : 0
+	},
+	{
+		"_id" : "Rita Moreno",
+		"both" : 0
+	},
+	{
+		"_id" : "Tatum O'Neal",
+		"both" : 0
+	},
+	{
+		"_id" : "Nicolas Cage",
+		"both" : 0
+	},
+	{
+		"_id" : "Jeremy Irons",
+		"both" : 0
+	},
+	{
+		"_id" : "Jane Fonda",
+		"both" : 0
+	},
+	{
+		"_id" : "Jon Voight",
+		"both" : 0
+	},
+	{
+		"_id" : "Ben Kingsley",
+		"both" : 0
+	},
+	{
+		"_id" : "Timothy Hutton",
+		"both" : 0
+	},
+	{
+		"_id" : "Anne Bancroft",
+		"both" : 0
+	},
+	{
+		"_id" : "Maureen Stapleton",
+		"both" : 0
+	},
+	{
+		"_id" : "Maggie Smith",
+		"both" : 1
+	},
+	{
+		"_id" : "Catherine Zeta-Jones",
+		"both" : 0
+	},
+	{
+		"_id" : "Jeff Bridges",
+		"both" : 0
+	},
+	{
+		"_id" : "Tommy Lee Jones",
+		"both" : 0
+	},
+	{
+		"_id" : "Robert De Niro",
+		"both" : 1
+	},
+	{
+		"_id" : "Morgan Freeman",
+		"both" : 0
+	},
+	{
+		"_id" : "Fay Bainter",
+		"both" : 0
+	},
+	{
+		"_id" : "Gwyneth Paltrow",
+		"both" : 0
+	},
+	{
+		"_id" : "Haing S. Ngor",
+		"both" : 0
+	},
+	{
+		"_id" : "Claudette Colbert",
+		"both" : 0
+	},
+	{
+		"_id" : "Shirley MacLaine",
+		"both" : 0
+	},
+	{
+		"_id" : "Don Ameche",
+		"both" : 0
+	},
+	{
+		"_id" : "Christian Bale",
+		"both" : 0
+	},
+	{
+		"_id" : "Katharine Hepburn",
+		"both" : 0
+	},
+	{
+		"_id" : "Peggy Ashcroft",
+		"both" : 0
+	},
+	{
+		"_id" : "Lee Marvin",
+		"both" : 0
+	},
+	{
+		"_id" : "Hilary Swank",
+		"both" : 0
+	},
+	{
+		"_id" : "Mercedes Ruehl",
+		"both" : 0
+	},
+	{
+		"_id" : "William Hurt",
+		"both" : 0
+	},
+	{
+		"_id" : "Marlee Matlin",
+		"both" : 0
+	},
+	{
+		"_id" : "Frank Sinatra",
+		"both" : 0
+	},
+	{
+		"_id" : "Reese Witherspoon",
+		"both" : 0
+	},
+	{
+		"_id" : "Frances McDormand",
+		"both" : 0
+	},
+	{
+		"_id" : "Ernest Borgnine",
+		"both" : 0
+	},
+	{
+		"_id" : "Cher",
+		"both" : 0
+	},
+	{
+		"_id" : "Diane Keaton",
+		"both" : 0
+	},
+	{
+		"_id" : "Dianne Wiest",
+		"both" : 0
+	},
+	{
+		"_id" : "Michael Douglas",
+		"both" : 0
+	},
+	{
+		"_id" : "George Clooney",
+		"both" : 0
+	},
+	{
+		"_id" : "J.K. Simmons",
+		"both" : 0
+	},
+	{
+		"_id" : "Paul Newman",
+		"both" : 0
+	},
+	{
+		"_id" : "Beatrice Straight",
+		"both" : 0
+	},
+	{
+		"_id" : "Kevin Kline",
+		"both" : 0
+	},
+	{
+		"_id" : "Renee Zellweger",
+		"both" : 0
+	},
+	{
+		"_id" : "Holly Hunter",
+		"both" : 0
+	},
+	{
+		"_id" : "Gene Hackman",
+		"both" : 1
+	},
+	{
+		"_id" : "Kathy Bates",
+		"both" : 0
+	},
+	{
+		"_id" : "Dustin Hoffman",
+		"both" : 0
+	},
+	{
+		"_id" : "Katina Paxinou",
+		"both" : 0
+	},
+	{
+		"_id" : "Mary Steenburgen",
+		"both" : 0
+	},
+	{
+		"_id" : "Burl Ives",
+		"both" : 0
+	},
+	{
+		"_id" : "Geoffrey Rush",
+		"both" : 0
+	},
+	{
+		"_id" : "Jessica Tandy",
+		"both" : 0
+	},
+	{
+		"_id" : "Alec Guinness",
+		"both" : 0
+	},
+	{
+		"_id" : "Jane Wyman",
+		"both" : 0
+	},
+	{
+		"_id" : "Henry Fonda",
+		"both" : 0
+	},
+	{
+		"_id" : "Maximilian Schell",
+		"both" : 0
+	},
+	{
+		"_id" : "Jennifer Connelly",
+		"both" : 0
+	},
+	{
+		"_id" : "Brie Larson",
+		"both" : 0
+	},
+	{
+		"_id" : "Whoopi Goldberg",
+		"both" : 0
+	},
+	{
+		"_id" : "Hugh Griffith",
+		"both" : 0
+	},
+	{
+		"_id" : "Jamie Foxx",
+		"both" : 0
+	},
+	{
+		"_id" : "Robert Duvall",
+		"both" : 0
+	},
+	{
+		"_id" : "Jim Broadbent",
+		"both" : 0
+	},
+	{
+		"_id" : "Geena Davis",
+		"both" : 0
+	},
+	{
+		"_id" : "Charlize Theron",
+		"both" : 0
+	},
+	{
+		"_id" : "Red Buttons",
+		"both" : 0
+	},
+	{
+		"_id" : "Gregory Peck",
+		"both" : 0
+	},
+	{
+		"_id" : "Anna Paquin",
+		"both" : 0
+	},
+	{
+		"_id" : "Martin Balsam",
+		"both" : 0
+	},
+	{
+		"_id" : "Sean Connery",
+		"both" : 0
+	},
+	{
+		"_id" : "Penelope Cruz",
+		"both" : 0
+	},
+	{
+		"_id" : "Jennifer Jones",
+		"both" : 0
+	},
+	{
+		"_id" : "Jack Palance",
+		"both" : 0
+	},
+	{
+		"_id" : "Emma Thompson",
+		"both" : 0
+	},
+	{
+		"_id" : "Christopher Walken",
+		"both" : 0
+	},
+	{
+		"_id" : "Octavia Spencer",
+		"both" : 0
+	},
+	{
+		"_id" : "Eddie Redmayne",
+		"both" : 0
+	},
+	{
+		"_id" : "Al Pacino",
+		"both" : 0
+	},
+	{
+		"_id" : "Leonardo DiCaprio",
+		"both" : 0
+	},
+	{
+		"_id" : "Sissy Spacek",
+		"both" : 0
+	},
+	{
+		"_id" : "Tilda Swinton",
+		"both" : 0
+	},
+	{
+		"_id" : "Martin Landau",
+		"both" : 0
+	},
+	{
+		"_id" : "Lupita Nyong'o",
+		"both" : 0
+	},
+	{
+		"_id" : "Brenda Fricker",
+		"both" : 0
+	},
+	{
+		"_id" : "Luise Rainer",
+		"both" : 0
+	},
+	{
+		"_id" : "Greer Garson",
+		"both" : 0
+	},
+	{
+		"_id" : "Jack Nicholson",
+		"both" : 1
+	},
+	{
+		"_id" : "Mercedes McCambridge",
+		"both" : 0
+	},
+	{
+		"_id" : "Juliette Binoche",
+		"both" : 0
+	},
+	{
+		"_id" : "Miyoshi Umeki",
+		"both" : 0
+	},
+	{
+		"_id" : "Glenda Jackson",
+		"both" : 0
+	},
+	{
+		"_id" : "Helen Hunt",
+		"both" : 0
+	},
+	{
+		"_id" : "Jose Ferrer",
+		"both" : 0
+	},
+	{
+		"_id" : "Jane Darwell",
+		"both" : 0
+	},
+	{
+		"_id" : "Michael Caine",
+		"both" : 0
+	},
+	{
+		"_id" : "Ginger Rogers",
+		"both" : 0
+	},
+	{
+		"_id" : "Meryl Streep",
+		"both" : 1
+	},
+	{
+		"_id" : "Denzel Washington",
+		"both" : 1
+	},
+	{
+		"_id" : "Marcia Gay Harden",
+		"both" : 0
+	},
+	{
+		"_id" : "Shirley Booth",
+		"both" : 0
+	},
+	{
+		"_id" : "Joan Fontaine",
+		"both" : 0
+	},
+	{
+		"_id" : "Anthony Hopkins",
+		"both" : 0
+	},
+	{
+		"_id" : "Julie Andrews",
+		"both" : 0
+	},
+	{
+		"_id" : "James Stewart",
+		"both" : 0
+	},
+	{
+		"_id" : "Heath Ledger",
+		"both" : 0
+	},
+	{
+		"_id" : "Marisa Tomei",
+		"both" : 0
+	},
+	{
+		"_id" : "Louis Gossett Jr.",
+		"both" : 0
+	},
+	{
+		"_id" : "Ed Begley",
+		"both" : 0
+	},
+	{
+		"_id" : "Halle Berry",
+		"both" : 0
+	},
+	{
+		"_id" : "Judi Dench",
+		"both" : 0
+	},
+	{
+		"_id" : "Geraldine Page",
+		"both" : 0
+	},
+	{
+		"_id" : "James Coburn",
+		"both" : 0
+	},
+	{
+		"_id" : "Loretta Young",
+		"both" : 0
+	},
+	{
+		"_id" : "Kim Hunter",
+		"both" : 0
+	},
+	{
+		"_id" : "Susan Hayward",
+		"both" : 0
+	},
+	{
+		"_id" : "Jack Lemmon",
+		"both" : 1
+	},
+	{
+		"_id" : "Jodie Foster",
+		"both" : 0
+	},
+	{
+		"_id" : "Chris Cooper",
+		"both" : 0
+	},
+	{
+		"_id" : "Burt Lancaster",
+		"both" : 0
+	},
+	{
+		"_id" : "Emil Jannings",
+		"both" : 0
+	},
+	{
+		"_id" : "Sandra Bullock",
+		"both" : 0
+	},
+	{
+		"_id" : "Anjelica Huston",
+		"both" : 0
+	},
+	{
+		"_id" : "Linda Hunt",
+		"both" : 0
+	},
+	{
+		"_id" : "Mo'Nique",
+		"both" : 0
+	},
+	{
+		"_id" : "Faye Dunaway",
+		"both" : 0
+	},
+	{
+		"_id" : "Tom Hanks",
+		"both" : 0
+	},
+	{
+		"_id" : "Mira Sorvino",
+		"both" : 0
+	},
+	{
+		"_id" : "Natalie Portman",
+		"both" : 0
+	},
+	{
+		"_id" : "Broderick Crawford",
+		"both" : 0
+	},
+	{
+		"_id" : "Jean Dujardin",
+		"both" : 0
+	},
+	{
+		"_id" : "Julianne Moore",
+		"both" : 0
+	},
+	{
+		"_id" : "Melissa Leo",
+		"both" : 0
+	},
+	{
+		"_id" : "Matthew McConaughey",
+		"both" : 0
+	},
+	{
+		"_id" : "Angelina Jolie",
+		"both" : 0
+	},
+	{
+		"_id" : "Rod Steiger",
+		"both" : 0
+	},
+	{
+		"_id" : "Russell Crowe",
+		"both" : 0
+	},
+	{
+		"_id" : "Anne Hathaway",
+		"both" : 0
+	},
+	{
+		"_id" : "Jennifer Hudson",
+		"both" : 0
+	},
+	{
+		"_id" : "Walter Huston",
+		"both" : 0
+	},
+	{
+		"_id" : "Gale Sondergaard",
+		"both" : 0
+	},
+	{
+		"_id" : "Alan Arkin",
+		"both" : 0
+	},
+	{
+		"_id" : "Kevin Spacey",
+		"both" : 1
+	},
+	{
+		"_id" : "Marion Cotillard",
+		"both" : 0
+	},
+	{
+		"_id" : "Olympia Dukakis",
+		"both" : 0
+	},
+	{
+		"_id" : "Jason Robards",
+		"both" : 0
+	},
+	{
+		"_id" : "Yul Brynner",
+		"both" : 0
+	},
+	{
+		"_id" : "Jo Van Fleet",
+		"both" : 0
+	},
+	{
+		"_id" : "Wallace Beery",
+		"both" : 0
+	},
+	{
+		"_id" : "Walter Brennan",
+		"both" : 0
+	},
+	{
+		"_id" : "Mark Rylance",
+		"both" : 0
+	},
+	{
+		"_id" : "Christoph Waltz",
+		"both" : 0
+	},
+	{
+		"_id" : "F. Murray Abraham",
+		"both" : 0
+	},
+	{
+		"_id" : "Bette Davis",
+		"both" : 0
+	},
+	{
+		"_id" : "Patricia Arquette",
+		"both" : 0
+	},
+	{
+		"_id" : "Olivia de Havilland",
+		"both" : 0
+	},
+	{
+		"_id" : "Sophia Loren",
+		"both" : 0
+	},
+	{
+		"_id" : "Sean Penn",
+		"both" : 0
+	},
+	{
+		"_id" : "Cuba Gooding Jr.",
+		"both" : 0
+	},
+	{
+		"_id" : "Alicia Vikander",
+		"both" : 0
+	},
+	{
+		"_id" : "John Wayne",
+		"both" : 0
+	},
+	{
+		"_id" : "Helen Mirren",
+		"both" : 0
+	},
+	{
+		"_id" : "Donna Reed",
+		"both" : 0
+	},
+	{
+		"_id" : "John Gielgud",
+		"both" : 0
+	},
+	{
+		"_id" : "Christopher Plummer",
+		"both" : 0
+	},
+	{
+		"_id" : "Susan Sarandon",
+		"both" : 0
+	},
+	{
+		"_id" : "Eva Marie Saint",
+		"both" : 0
+	}
+]

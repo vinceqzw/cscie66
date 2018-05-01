@@ -1,0 +1,293 @@
+MongoDB shell version: 2.4.14
+connecting to: test
+
+results of sample query
+-----------------------
+{ "name" : "Home Alone" }
+{ "name" : "Ghost" }
+{ "name" : "Dances with Wolves" }
+{ "name" : "Pretty Woman" }
+{ "name" : "Teenage Mutant Ninja Turtles" }
+{ "name" : "Reversal of Fortune" }
+{ "name" : "Misery" }
+{ "name" : "Goodfellas" }
+
+results of query 1
+------------------
+{ "name" : "Cast Away" }
+{ "name" : "Mission: Impossible II" }
+{ "name" : "What Women Want" }
+{ "name" : "Perfect Storm, The" }
+{ "name" : "Meet the Parents" }
+{ "name" : "X-Men" }
+{ "name" : "What Lies Beneath" }
+
+results of query 2
+------------------
+{
+    "name" : "Emma Stone",
+    "dob" : "1988-11-06",
+    "pob" : "Scottsdale, Arizona, USA"
+}
+{
+    "name" : "Viola Davis",
+    "dob" : "1965-08-11",
+    "pob" : "Saint Matthews, South Carolina, USA"
+}
+
+results of query 3
+------------------
+{ "year" : 1999, "movie" : { "name" : "Shakespeare in Love" } }
+{ "year" : 1998, "movie" : { "name" : "Titanic" } }
+{ "year" : 1997, "movie" : { "name" : "English Patient, The" } }
+{ "year" : 1996, "movie" : { "name" : "Braveheart" } }
+{ "year" : 1995, "movie" : { "name" : "Forrest Gump" } }
+{ "year" : 1994, "movie" : { "name" : "Schindler's List" } }
+{ "year" : 1993, "movie" : { "name" : "Unforgiven" } }
+{ "year" : 1992, "movie" : { "name" : "Silence of the Lambs, The" } }
+{ "year" : 1991, "movie" : { "name" : "Dances with Wolves" } }
+{ "year" : 1990, "movie" : { "name" : "Driving Miss Daisy" } }
+
+results of query 4
+------------------
+{ "name" : "Roman Polanski", "pob" : "Paris, France" }
+{ "name" : "Frank Darabont", "pob" : "Montebeliard, France" }
+{ "name" : "Jonathan Kaplan", "pob" : "Paris, France" }
+{ "name" : "William Wyler", "pob" : "Mulhouse, Haut-Rhin, Alsace, France" }
+{ "name" : "Olivier Dahan", "pob" : "La Ciotat, Bouches-du-Rhone, France" }
+{ "name" : "Louis Leterrier", "pob" : "Paris, France" }
+{ "name" : "Michel Hazanavicius", "pob" : "Paris, France" }
+
+results of query 5
+------------------
+[
+    {
+        "_id" : "GP",
+        "average_runtime" : 187
+    },
+    {
+        "_id" : "M",
+        "average_runtime" : 124
+    },
+    {
+        "_id" : "NC-17",
+        "average_runtime" : 114.5
+    },
+    {
+        "_id" : "G",
+        "average_runtime" : 117.62162162162163
+    },
+    {
+        "_id" : null,
+        "average_runtime" : 115.41726618705036
+    },
+    {
+        "_id" : "PG",
+        "average_runtime" : 112.46268656716418
+    },
+    {
+        "_id" : "R",
+        "average_runtime" : 126.20270270270271
+    },
+    {
+        "_id" : "PG-13",
+        "average_runtime" : 127.26108374384236
+    }
+]
+
+results of query 6
+------------------
+[
+    {
+        "average_runtime" : 187,
+        "rating" : "GP"
+    },
+    {
+        "average_runtime" : 124,
+        "rating" : "M"
+    },
+    {
+        "average_runtime" : 114.5,
+        "rating" : "NC-17"
+    },
+    {
+        "average_runtime" : 117.62162162162163,
+        "rating" : "G"
+    },
+    {
+        "average_runtime" : 115.41726618705036,
+        "rating" : null
+    },
+    {
+        "average_runtime" : 112.46268656716418,
+        "rating" : "PG"
+    },
+    {
+        "average_runtime" : 126.20270270270271,
+        "rating" : "R"
+    },
+    {
+        "average_runtime" : 127.26108374384236,
+        "rating" : "PG-13"
+    }
+]
+
+results of query 7
+------------------
+[
+    {
+        "_id" : "It Happened One Night"
+    },
+    {
+        "_id" : "West Side Story"
+    },
+    {
+        "_id" : "On the Waterfront"
+    },
+    {
+        "_id" : "Best Years of Our Lives, The"
+    },
+    {
+        "_id" : "Terms of Endearment"
+    },
+    {
+        "_id" : "Mrs. Miniver"
+    },
+    {
+        "_id" : "Going My Way"
+    },
+    {
+        "_id" : "Gone with the Wind"
+    },
+    {
+        "_id" : "Ben-Hur"
+    },
+    {
+        "_id" : "Silence of the Lambs, The"
+    },
+    {
+        "_id" : "From Here to Eternity"
+    },
+    {
+        "_id" : "Million Dollar Baby"
+    },
+    {
+        "_id" : "One Flew Over the Cuckoo's Nest"
+    },
+    {
+        "_id" : "Kramer vs. Kramer"
+    }
+]
+
+results of query 8
+------------------
+[
+    "Dee Wallace-Stone",
+    "Drew Barrymore",
+    "Henry Thomas",
+    "Peter Coyote",
+    "Robert MacNaughton",
+    "Bob Peck",
+    "Jeff Goldblum",
+    "Laura Dern",
+    "Richard Attenborough",
+    "Sam Neill",
+    "Cate Blanchett",
+    "Harrison Ford",
+    "Karen Allen",
+    "Ray Winstone",
+    "Shia LaBeouf",
+    "Lorraine Gary",
+    "Murray Hamilton",
+    "Richard Dreyfuss",
+    "Robert Shaw",
+    "Roy Scheider",
+    "John Rhys-Davies",
+    "Paul Freeman",
+    "Ronald Lacey",
+    "Dakota Fanning",
+    "Justin Chatwin",
+    "Miranda Otto",
+    "Tim Robbins",
+    "Tom Cruise",
+    "Julianne Moore",
+    "Pete Postlethwaite",
+    "Vince Vaughn",
+    "Edward Burns",
+    "Jeremy Davies",
+    "Matt Damon",
+    "Tom Hanks",
+    "Tom Sizemore",
+    "Alison Doody",
+    "Denholm Elliott",
+    "Sean Connery",
+    "Daniel Day-Lewis",
+    "David Strathairn",
+    "James Spader",
+    "Joseph Gordon-Levitt",
+    "Sally Field",
+    "Amrish Puri",
+    "Jonathan Ke Quan",
+    "Kate Capshaw",
+    "Roshan Seth",
+    "Christopher Walken",
+    "Leonardo DiCaprio",
+    "Martin Sheen",
+    "Nathalie Baye",
+    "Colin Farrell",
+    "Max von Sydow",
+    "Samantha Morton",
+    "Steve Harris",
+    "Ben Kingsley",
+    "Caroline Goodall",
+    "Jonathan Sagall",
+    "Liam Neeson",
+    "Ralph Fiennes",
+    "Brian Hutchison",
+    "Domenick Lombardozzi",
+    "Mark Fichera",
+    "Mark Rylance",
+    "Victor Verhaeghe"
+]
+
+results of query 9
+------------------
+[ { "name" : "Cars", "runtime" : 124 } ]
+
+results of query 10
+-------------------
+[
+    {
+        "type" : "BEST-PICTURE",
+        "movie" : "Chicago"
+    },
+    {
+        "type" : "BEST-ACTOR",
+        "person" : "Adrien Brody",
+        "movie" : "Pianist, The"
+    },
+    {
+        "type" : "BEST-ACTRESS",
+        "person" : "Nicole Kidman",
+        "movie" : "Hours, The"
+    },
+    {
+        "type" : "BEST-SUPPORTING-ACTOR",
+        "person" : "Chris Cooper",
+        "movie" : "Adaptation."
+    },
+    {
+        "type" : "BEST-SUPPORTING-ACTRESS",
+        "person" : "Catherine Zeta-Jones",
+        "movie" : "Chicago"
+    },
+    {
+        "type" : "BEST-DIRECTOR",
+        "person" : "Roman Polanski",
+        "movie" : "Pianist, The"
+    }
+]
+
+results of query 11
+-------------------
+[ { "count" : 12 } ]

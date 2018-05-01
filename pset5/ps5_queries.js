@@ -288,6 +288,77 @@ print()
 print("results of query 11")
 print("-------------------")
 
-results =
+results = db.oscars.aggregate(
+    {
+        $match: {
+            $or: [
+                {type: /BEST-ACT/},
+                {type: /BEST-SUPPORTING-ACT/}
+            ]
+        }
+    },
+    {
+        $project: {
+            _id: "$person.name",
+            ba_: {
+                $cond: [
+                    {$or: [
+                        {$eq: ["$type", "BEST-ACTOR"]},
+                        {$eq: ["$type", "BEST-ACTRESS"]}
+                    ]},
+                    1,
+                    0
+                ]
+            },
+            bsa_: {
+                $cond: [
+                    {$or: [
+                        {$eq: ["$type", "BEST-SUPPORTING-ACTOR"]},
+                        {$eq: ["$type", "BEST-SUPPORTING-ACTRESS"]}
+                    ]},
+                    1,
+                    0
+                ]
+            }
+        }
+    },
+    {
+        $group: {
+            _id: "$_id",
+            ba: {$max: "$ba_"},
+            bsa: {$max: "$bsa_"},
+        }
+    },
+    {
+        $project: {
+            _id: "$_id",
+            both: {
+                $cond: [
+                    {$and: [
+                        {$eq: ["$ba", 1]},
+                        {$eq: ["$bsa", 1]}
+                    ]},
+                    1,
+                    0
+                ]
+            }
+        }
+    },
+    {
+        $group:{
+            _id: "$both",
+            count: {$sum: "$both"}
+        }
+    },
+    {
+        $limit: 1
+    },
+    {
+        $project: {
+            _id: 0,
+            count: 1
+        }
+    }
+)
 
 printResults(results)
